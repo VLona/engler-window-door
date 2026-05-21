@@ -110,7 +110,7 @@ export default function Home() {
               </div>
               <div>
                 <dt className="font-serif text-2xl normal-case tracking-tight text-accent">
-                  3
+                  7
                 </dt>
                 <dd className="mt-2">Premier manufacturer partners</dd>
               </div>
@@ -149,18 +149,48 @@ export default function Home() {
       </section>
 
       {/* ── Manufacturer band ──────────────────────────────────── */}
-      <section className="border-y border-line bg-ink py-10 text-background">
+      <section className="border-y border-line bg-ink py-14 text-background lg:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <p className="mb-6 text-center text-[11px] uppercase tracking-[0.3em] text-background/60">
-            Premier manufacturer partners
-          </p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 font-serif text-2xl tracking-tight text-background/90 md:text-3xl">
-            <li>Loewen</li>
-            <li className="text-accent">·</li>
-            <li>ES Windows</li>
-            <li className="text-accent">·</li>
-            <li>Signature Door</li>
+          <div className="mb-10 flex flex-col items-center gap-3 text-center">
+            <span className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-background/60">
+              <span className="h-px w-8 bg-accent" />
+              Premier manufacturer partners
+              <span className="h-px w-8 bg-accent" />
+            </span>
+            <h2 className="max-w-2xl font-serif text-3xl leading-tight tracking-tight text-background md:text-4xl">
+              The finest names in custom windows &amp; doors,{" "}
+              <em className="italic text-accent">handpicked for every home.</em>
+            </h2>
+          </div>
+
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-10 text-center sm:grid-cols-3 lg:grid-cols-7">
+            {[
+              "Loewen",
+              "ES Windows",
+              "Signature Door",
+              "Euro-Wall",
+              "Origin",
+              "Arcadia",
+              "Ashley Norton",
+            ].map((name) => (
+              <li
+                key={name}
+                className="flex flex-col items-center gap-3 border-l border-background/10 first:border-l-0 sm:[&:nth-child(4)]:border-l-0 lg:[&:nth-child(n)]:border-l lg:[&:nth-child(n)]:first:border-l-0"
+              >
+                <span aria-hidden="true" className="text-[10px] text-accent">
+                  ◆
+                </span>
+                <span className="font-serif text-xl tracking-tight text-background/90 md:text-2xl">
+                  {name}
+                </span>
+              </li>
+            ))}
           </ul>
+
+          <p className="mt-12 text-center text-[11px] uppercase tracking-[0.2em] text-background/50">
+            Custom windows, doors, and architectural hardware · South Florida
+            code-compliant
+          </p>
         </div>
       </section>
     </div>
