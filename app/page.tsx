@@ -410,6 +410,226 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── About ──────────────────────────────────────────────── */}
+      <section id="about" className="bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
+            <div className="lg:col-span-5">
+              <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
+                <span className="h-px w-8 bg-accent" />
+                About Engler
+              </span>
+              <h2 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Twenty years, one family,{" "}
+                <em className="italic text-accent">one standard.</em>
+              </h2>
+            </div>
+
+            <div className="space-y-6 text-base leading-relaxed text-muted lg:col-span-7">
+              <p>
+                Engler Window &amp; Door was founded in 2003 by Mike Engler in
+                Naples, Florida. What started as one man insisting on doing
+                the install himself has grown into a small, deliberate
+                family-owned business that homeowners, architects, and
+                builders across the Gulf Coast keep coming back to.
+              </p>
+              <p>
+                We&apos;ve stayed small on purpose. What&apos;s grown over
+                twenty years isn&apos;t our headcount — it&apos;s the depth
+                of our manufacturer relationships, the breadth of our project
+                portfolio, and our reputation for the codes-and-craft
+                knowledge the Florida climate demands.
+              </p>
+              <p>
+                Today, Engler specializes in{" "}
+                <em className="font-serif italic text-foreground">
+                  custom new construction
+                </em>{" "}
+                and{" "}
+                <em className="font-serif italic text-foreground">
+                  remove &amp; replace
+                </em>{" "}
+                projects from Naples to North Carolina — every one of them
+                touched personally by Mike.
+              </p>
+            </div>
+          </div>
+
+          {/* Three core values — lifted from the real englerwindow.com */}
+          <div className="mt-20 grid grid-cols-1 gap-12 border-t border-line pt-16 md:grid-cols-3 md:gap-8">
+            <article>
+              <span className="font-serif text-5xl text-accent">01</span>
+              <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
+                Distinctive products
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                We carry only the manufacturers that meet our standard for
+                design, performance, and warranty. No catalogue padding, no
+                house brands.
+              </p>
+            </article>
+            <article>
+              <span className="font-serif text-5xl text-accent">02</span>
+              <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
+                Long-term service
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Specialized service that doesn&apos;t end the day we hand
+                over the keys. The same Engler team is here in year ten as
+                it was in year one.
+              </p>
+            </article>
+            <article>
+              <span className="font-serif text-5xl text-accent">03</span>
+              <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
+                Fair &amp; honest
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted">
+                Direct pricing, straight answers, and a quote you can take
+                to your contractor. Twenty years of referrals come from how
+                we handle the hard conversations.
+              </p>
+            </article>
+          </div>
+
+          <p className="mt-16 text-center font-serif text-lg italic text-muted">
+            — Mike Engler, Founder
+          </p>
+        </div>
+      </section>
+
+      {/* ── Final CTA banner ───────────────────────────────────── */}
+      <section className="border-y border-line bg-background py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+          <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
+            <span className="h-px w-8 bg-accent" />
+            Let&apos;s begin
+            <span className="h-px w-8 bg-accent" />
+          </span>
+          <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Ready to start{" "}
+            <em className="italic text-accent">your project?</em>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted">
+            Call Mike directly, or send us a few details about your home and
+            we&apos;ll put a quote together for you.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="tel:+12393312390"
+              className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
+            >
+              Call 239.331.2390
+            </a>
+            <a
+              href="#quote"
+              className="inline-flex items-center justify-center rounded-full border border-foreground px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+            >
+              Request a quote →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ─────────────────────────────────────────────── */}
+      <footer
+        id="contact"
+        className="bg-ink py-20 text-background lg:py-24"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
+            {/* Brand */}
+            <div className="md:col-span-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://static.wixstatic.com/media/b7f13d_4fd9ca12c1df4868a58318f47c856ca9~mv2.png"
+                alt="Engler Window & Door"
+                className="h-12 w-auto brightness-0 invert"
+              />
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-background/70">
+                Custom windows and doors for homeowners, architects, and
+                builders across Southwest Florida and beyond. Family-owned
+                since 2003.
+              </p>
+            </div>
+
+            {/* Contact */}
+            <div className="md:col-span-3">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-background/50">
+                Contact
+              </h3>
+              <ul className="mt-5 space-y-3 text-sm text-background/85">
+                <li>
+                  <a
+                    href="tel:+12393312390"
+                    className="transition-colors hover:text-accent"
+                  >
+                    239.331.2390
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:mengler@englerwindow.com"
+                    className="break-all transition-colors hover:text-accent"
+                  >
+                    mengler@englerwindow.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Service area */}
+            <div className="md:col-span-2">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-background/50">
+                Service Area
+              </h3>
+              <p className="mt-5 text-sm leading-relaxed text-background/85">
+                Naples · the Gulf Coast · Southwest Florida &amp; beyond
+              </p>
+            </div>
+
+            {/* Explore links */}
+            <div className="md:col-span-2">
+              <h3 className="text-xs uppercase tracking-[0.25em] text-background/50">
+                Explore
+              </h3>
+              <ul className="mt-5 space-y-3 text-sm text-background/85">
+                <li>
+                  <a
+                    href="#work"
+                    className="transition-colors hover:text-accent"
+                  >
+                    Work
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#manufacturers"
+                    className="transition-colors hover:text-accent"
+                  >
+                    Manufacturers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    className="transition-colors hover:text-accent"
+                  >
+                    About
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom strip */}
+          <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-background/15 pt-8 text-[11px] uppercase tracking-[0.2em] text-background/50 md:flex-row">
+            <p>© 2026 Engler Window &amp; Door. All rights reserved.</p>
+            <p>Family-owned in Naples since 2003</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
