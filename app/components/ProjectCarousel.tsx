@@ -28,7 +28,16 @@ const slides = [
 
 const AUTO_ADVANCE_MS = 5000;
 
-export default function ProjectCarousel() {
+type Props = {
+  // Override the carousel's sizing. Default works for the full-width image strip;
+  // pass something like "aspect-[4/3] lg:aspect-auto lg:min-h-[480px]" when
+  // dropping it into a different layout (e.g. the CTA banner split column).
+  className?: string;
+};
+
+export default function ProjectCarousel({
+  className = "aspect-[21/9] w-full",
+}: Props) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -49,7 +58,7 @@ export default function ProjectCarousel() {
     <section
       aria-roledescription="carousel"
       aria-label="Engler Window & Door project gallery"
-      className="relative aspect-[21/9] w-full overflow-hidden bg-ink"
+      className={`relative overflow-hidden bg-ink ${className}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >

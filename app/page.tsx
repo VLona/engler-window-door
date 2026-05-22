@@ -507,15 +507,10 @@ export default function Home() {
       {/* ── Final CTA banner — split layout w/ photo + text ────── */}
       <section className="border-y border-line bg-background">
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-          {/* Photo (left on desktop, top on mobile) */}
-          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[480px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://static.wixstatic.com/media/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg/v1/fit/w_1920,h_930,q_90,enc_avif,quality_auto/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg"
-              alt="Engler Window & Door — featured project"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+          {/* Photo carousel (left on desktop, top on mobile) — reuses the
+              same component as the image strip above, with a taller aspect */}
+          <ProjectCarousel className="aspect-[4/3] w-full lg:aspect-auto lg:min-h-[480px]" />
+
 
           {/* Text + CTAs (right on desktop, below on mobile) */}
           <div className="flex flex-col items-start justify-center px-6 py-20 lg:px-16 lg:py-28">
