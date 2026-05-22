@@ -1,3 +1,5 @@
+import ProjectCarousel from "./components/ProjectCarousel";
+
 // Manufacturer data — kept up here so the JSX below stays readable.
 // Each card maps over this array; edit copy here, JSX stays the same.
 const manufacturers = [
@@ -411,15 +413,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Image strip transition (testimonials → about) ───────── */}
-      <div className="relative aspect-[21/9] w-full overflow-hidden bg-ink">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://static.wixstatic.com/media/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg/v1/fit/w_1920,h_930,q_90,enc_avif,quality_auto/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg"
-          alt="Engler Window & Door — featured installation"
-          className="h-full w-full object-cover"
-        />
-      </div>
+      {/* ── Project carousel (auto-advances + manual nav) ──────── */}
+      <ProjectCarousel />
 
       {/* ── About ──────────────────────────────────────────────── */}
       <section id="about" className="bg-background py-24 lg:py-32">
