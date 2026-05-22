@@ -411,6 +411,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Image strip transition (testimonials → about) ───────── */}
+      <div className="relative aspect-[21/9] w-full overflow-hidden bg-ink">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://static.wixstatic.com/media/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg/v1/fit/w_1920,h_930,q_90,enc_avif,quality_auto/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg"
+          alt="Engler Window & Door — featured installation"
+          className="h-full w-full object-cover"
+        />
+      </div>
+
       {/* ── About ──────────────────────────────────────────────── */}
       <section id="about" className="bg-background py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -499,35 +509,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Final CTA banner ───────────────────────────────────── */}
-      <section className="border-y border-line bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
-          <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
-            <span className="h-px w-8 bg-accent" />
-            Let&apos;s begin
-            <span className="h-px w-8 bg-accent" />
-          </span>
-          <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Ready to start{" "}
-            <em className="italic text-accent">your project?</em>
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted">
-            Call Mike directly, or send us a few details about your home and
-            we&apos;ll put a quote together for you.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="tel:+12393312390"
-              className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
-            >
-              Call 239.331.2390
-            </a>
-            <a
-              href="#quote"
-              className="inline-flex items-center justify-center rounded-full border border-foreground px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
-            >
-              Request a quote →
-            </a>
+      {/* ── Final CTA banner — split layout w/ photo + text ────── */}
+      <section className="border-y border-line bg-background">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+          {/* Photo (left on desktop, top on mobile) */}
+          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[480px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://static.wixstatic.com/media/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg/v1/fit/w_1920,h_930,q_90,enc_avif,quality_auto/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg"
+              alt="Engler Window & Door — featured project"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+
+          {/* Text + CTAs (right on desktop, below on mobile) */}
+          <div className="flex flex-col items-start justify-center px-6 py-20 lg:px-16 lg:py-28">
+            <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
+              <span className="h-px w-8 bg-accent" />
+              Let&apos;s begin
+            </span>
+            <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Ready to start{" "}
+              <em className="italic text-accent">your project?</em>
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
+              Call Mike directly, or send us a few details about your home and
+              we&apos;ll put a quote together for you.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href="tel:+12393312390"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
+              >
+                Call 239.331.2390
+              </a>
+              <a
+                href="#quote"
+                className="inline-flex items-center justify-center rounded-full border border-foreground px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+              >
+                Request a quote →
+              </a>
+            </div>
           </div>
         </div>
       </section>
