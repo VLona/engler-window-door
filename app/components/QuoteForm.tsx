@@ -83,7 +83,7 @@ function QuoteFormInner() {
         type="tel"
         value={phone}
         onChange={setPhone}
-        placeholder="Optional — Mike prefers to call when possible"
+        required
       />
 
       <Field
@@ -101,14 +101,16 @@ function QuoteFormInner() {
           className="mb-3 block text-xs uppercase tracking-[0.2em] text-muted"
         >
           Tell us about your project
+          <span className="text-accent"> *</span>
         </label>
         <textarea
           id="project"
           name="project"
+          required
           rows={6}
           value={project}
           onChange={(e) => setProject(e.target.value)}
-          placeholder="Optional, but more detail = faster + more accurate numbers. e.g. Replacing 8 windows on a 2-story home in Naples."
+          placeholder="The more detail the better. e.g. Replacing 8 windows on a 2-story home in Naples. Custom front door. Any preferred manufacturer?"
           className="w-full border border-line bg-transparent p-4 text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
         />
       </div>
