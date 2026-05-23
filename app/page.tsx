@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProjectCarousel from "./components/ProjectCarousel";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
@@ -94,12 +95,12 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="#quote"
+              <Link
+                href="/quote"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
               >
                 Start your project
-              </a>
+              </Link>
               <a
                 href="#work"
                 className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-foreground underline-offset-4 transition hover:text-accent hover:underline"
@@ -227,12 +228,12 @@ export default function Home() {
 
         <p className="mt-16 text-center text-sm text-muted">
           Want to see more?{" "}
-          <a
-            href="#quote"
+          <Link
+            href="/quote"
             className="font-medium text-foreground underline-offset-4 transition hover:text-accent hover:underline"
           >
             Request a portfolio walkthrough →
-          </a>
+          </Link>
         </p>
       </section>
 
@@ -312,13 +313,13 @@ export default function Home() {
                 <p className="mt-5 flex-1 text-sm leading-relaxed text-muted">
                   {m.copy}
                 </p>
-                <a
-                  href="#quote"
+                <Link
+                  href={`/quote?brand=${encodeURIComponent(m.name)}`}
                   className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground transition hover:text-accent"
                 >
                   Request a quote on {m.name}
                   <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </article>
             ))}
           </div>
@@ -471,12 +472,12 @@ export default function Home() {
               >
                 Call 239.331.2390
               </a>
-              <a
-                href="#quote"
+              <Link
+                href="/quote"
                 className="inline-flex items-center justify-center rounded-full border border-foreground px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
                 Request a quote →
-              </a>
+              </Link>
             </div>
           </div>
         </div>

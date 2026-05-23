@@ -66,12 +66,12 @@ export default function SiteHeader() {
             </li>
           </ul>
 
-          <a
-            href="tel:+12393312390"
+          <Link
+            href="/quote"
             className="hidden rounded-full bg-accent px-5 py-2 text-sm font-medium text-background transition-colors hover:bg-accent-dark md:inline-block"
           >
-            239.331.2390
-          </a>
+            Get a quote
+          </Link>
         </nav>
       </header>
     </>

@@ -86,6 +86,14 @@ export default function SiteFooter() {
                   About
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/quote"
+                  className="transition-colors hover:text-accent"
+                >
+                  Get a quote
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
