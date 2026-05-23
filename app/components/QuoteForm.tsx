@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { supabase } from "../lib/supabase";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -31,10 +32,12 @@ function QuoteFormInner() {
     setStatus("submitting");
     setErrorMsg("");
 
-    // TODO: hook to Supabase in the next pass. For now this simulates a
-    // successful submission so we can see the success state.
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const { error } = await supabase
+        .from("quote_requests")
+        .insert({ name, phone, email, project });
+
+      if (error) throw error;
       setStatus("success");
     } catch (err) {
       setStatus("error");
