@@ -13,16 +13,16 @@ function QuoteFormInner() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [installation, setInstallation] = useState("");
+  const [project, setProject] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   // If the user clicked a manufacturer CTA (e.g. /quote?brand=Loewen),
-  // pre-fill the installation field with that context — they can edit it.
+  // pre-fill the project field with that context — they can edit it.
   useEffect(() => {
     const brand = searchParams.get("brand");
     if (brand) {
-      setInstallation(`Interested in ${brand} — `);
+      setProject(`Interested in ${brand} — `);
     }
   }, [searchParams]);
 
@@ -97,19 +97,19 @@ function QuoteFormInner() {
 
       <div>
         <label
-          htmlFor="installation"
+          htmlFor="project"
           className="mb-3 block text-xs uppercase tracking-[0.2em] text-muted"
         >
           Tell us about your project
           <span className="text-accent"> *</span>
         </label>
         <textarea
-          id="installation"
-          name="installation"
+          id="project"
+          name="project"
           required
           rows={6}
-          value={installation}
-          onChange={(e) => setInstallation(e.target.value)}
+          value={project}
+          onChange={(e) => setProject(e.target.value)}
           placeholder="e.g. Replacing 8 windows on a 2-story home in Naples. Custom front door. Any preferred manufacturer?"
           className="w-full border border-line bg-transparent p-4 text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
         />
