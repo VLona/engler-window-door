@@ -83,8 +83,7 @@ function QuoteFormInner() {
         type="tel"
         value={phone}
         onChange={setPhone}
-        required
-        placeholder="Mike prefers to call"
+        placeholder="Optional — Mike prefers to call when possible"
       />
 
       <Field
