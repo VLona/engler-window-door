@@ -101,7 +101,7 @@ function QuoteFormInner() {
           htmlFor="installation"
           className="mb-3 block text-xs uppercase tracking-[0.2em] text-muted"
         >
-          What installation do you need?
+          Tell us about your project
           <span className="text-accent"> *</span>
         </label>
         <textarea
@@ -118,7 +118,7 @@ function QuoteFormInner() {
 
       {errorMsg && <p className="text-sm text-accent">{errorMsg}</p>}
 
-      <div className="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center">
+      <div className="pt-2">
         <button
           type="submit"
           disabled={status === "submitting"}
@@ -126,9 +126,6 @@ function QuoteFormInner() {
         >
           {status === "submitting" ? "Sending…" : "Request a quote"}
         </button>
-        <p className="text-xs uppercase tracking-[0.2em] text-muted">
-          Mike replies within 1 business day
-        </p>
       </div>
     </form>
   );
