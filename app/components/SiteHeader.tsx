@@ -42,7 +42,7 @@ export default function SiteHeader() {
             </li>
             <li>
               <Link
-                href="/#manufacturers"
+                href="/manufacturers"
                 className="transition-colors hover:text-accent"
               >
                 Manufacturers

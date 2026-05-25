@@ -2,46 +2,7 @@ import Link from "next/link";
 import ProjectCarousel from "./components/ProjectCarousel";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-
-// Manufacturer data — kept up here so the JSX below stays readable.
-// Each card maps over this array; edit copy here, JSX stays the same.
-const manufacturers = [
-  {
-    name: "Loewen",
-    tagline: "Premium wood-clad windows",
-    copy: "For projects that demand the warmth of wood paired with modern engineering, we work with Loewen. Their hand-finished casements and lift-and-slide doors are how we deliver true architectural craft to clients who notice every detail.",
-  },
-  {
-    name: "ES Windows",
-    tagline: "Impact-rated aluminum systems",
-    copy: "Built for Florida's climate. ES Windows' impact-rated aluminum systems are our first call when a project needs hurricane code compliance without sacrificing the clean modern lines architects ask for.",
-  },
-  {
-    name: "Signature Door",
-    tagline: "Custom mahogany & iron entryways",
-    copy: "An entryway sets the tone for the whole home. We work with Signature Door because every one of theirs is built from solid mahogany or wrought iron, made-to-order for the residence it opens.",
-  },
-  {
-    name: "Euro-Wall",
-    tagline: "Folding & multi-track glass systems",
-    copy: "When clients want to dissolve the line between living room and lanai, we install Euro-Wall. Their folding and pocketing glass walls open entire facades to the water, the breeze, and the view.",
-  },
-  {
-    name: "Origin",
-    tagline: "British-engineered aluminum bifolds",
-    copy: "Origin's slim-profile aluminum bifolds and casements deliver the minimalist look modern Naples architecture demands — paired with the precision and warranty backing that come out of an English factory.",
-  },
-  {
-    name: "Arcadia",
-    tagline: "Classic Florida sliding glass",
-    copy: "Arcadia has been part of Florida's architectural language for generations. We install them on careful restorations and modern coastal builds alike — clean, timeless, and effortless to operate for decades.",
-  },
-  {
-    name: "Ashley Norton",
-    tagline: "Architectural hardware in solid brass",
-    copy: "The smallest details say the most about a home. Ashley Norton's solid-brass handles, hinges, and locksets — finished by hand in any patina — are what we specify when nothing less than perfect will do.",
-  },
-];
+import { manufacturers } from "./data/manufacturers";
 
 // Real testimonials lifted from englerwindow.com — homeowner / architect / builder triangle.
 const testimonials = [
@@ -301,23 +262,23 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {manufacturers.map((m) => (
               <article
-                key={m.name}
+                key={m.slug}
                 className="flex flex-col bg-background p-8 transition-colors hover:bg-line/30 lg:p-10"
               >
                 <h3 className="font-serif text-3xl tracking-tight text-foreground">
                   {m.name}
                 </h3>
                 <p className="mt-2 text-[11px] uppercase tracking-[0.25em] text-accent">
-                  {m.tagline}
+                  {m.category}
                 </p>
                 <p className="mt-5 flex-1 text-sm leading-relaxed text-muted">
-                  {m.copy}
+                  {m.shortCopy}
                 </p>
                 <Link
-                  href={`/quote?brand=${encodeURIComponent(m.name)}`}
+                  href={`/manufacturers/${m.slug}`}
                   className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground transition hover:text-accent"
                 >
-                  Request a quote on {m.name}
+                  Check {m.name}
                   <span aria-hidden="true">→</span>
                 </Link>
               </article>
