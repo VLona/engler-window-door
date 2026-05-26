@@ -60,52 +60,94 @@ export default async function ManufacturerDeepPage({
         </div>
       </div>
 
-      {/* ── Brand hero ────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 pt-16 pb-16 lg:px-10 lg:pt-24 lg:pb-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Left: big logo */}
-          <div className="lg:col-span-4">
-            <div className="flex w-full items-start justify-start bg-background">
+      {/* ── Brand hero — centered, logo top, brand name clickable to manufacturer site ── */}
+      <section className="mx-auto max-w-4xl px-6 pt-16 pb-16 text-center lg:px-10 lg:pt-24 lg:pb-20">
+        {/* Logo — clickable if a website URL exists */}
+        <div className="flex justify-center">
+          {m.website ? (
+            <a
+              href={m.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${m.name} website (opens in new tab)`}
+              className="transition-opacity hover:opacity-80"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={m.logo}
                 alt={`${m.name} logo`}
                 className="max-h-44 w-auto object-contain lg:max-h-56"
               />
-            </div>
-          </div>
+            </a>
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={m.logo}
+              alt={`${m.name} logo`}
+              className="max-h-44 w-auto object-contain lg:max-h-56"
+            />
+          )}
+        </div>
 
-          {/* Right: heading block */}
-          <div className="lg:col-span-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-muted">
-              Manufacturer Partner · {String(index + 1).padStart(2, "0")} /{" "}
-              {String(manufacturers.length).padStart(2, "0")}
-            </p>
+        {/* Eyebrow */}
+        <p className="mt-10 text-xs uppercase tracking-[0.25em] text-muted">
+          Manufacturer Partner · {String(index + 1).padStart(2, "0")} /{" "}
+          {String(manufacturers.length).padStart(2, "0")}
+        </p>
 
-            <h1 className="mt-4 font-serif text-6xl leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+        {/* Brand name — clickable to manufacturer site if website exists */}
+        {m.website ? (
+          <a
+            href={m.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-block"
+          >
+            <h1 className="mt-4 font-serif text-6xl leading-[0.95] tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-7xl lg:text-8xl">
               {m.name}
             </h1>
+          </a>
+        ) : (
+          <h1 className="mt-4 font-serif text-6xl leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+            {m.name}
+          </h1>
+        )}
 
-            {m.classification && (
-              <p className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-accent">
-                <span className="h-px w-8 bg-accent" />
-                {m.classification}
-              </p>
-            )}
+        {/* Classification — centered with flanking lines */}
+        {m.classification && (
+          <p className="mt-6 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-accent">
+            <span className="h-px w-8 bg-accent" />
+            {m.classification}
+            <span className="h-px w-8 bg-accent" />
+          </p>
+        )}
 
-            {m.origin && (
-              <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted">
-                {m.origin}
-              </p>
-            )}
+        {/* Origin */}
+        {m.origin && (
+          <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted">
+            {m.origin}
+          </p>
+        )}
 
-            {m.tagline && (
-              <p className="mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-muted sm:text-3xl">
-                &ldquo;{m.tagline}&rdquo;
-              </p>
-            )}
-          </div>
-        </div>
+        {/* Tagline */}
+        {m.tagline && (
+          <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-muted sm:text-3xl">
+            &ldquo;{m.tagline}&rdquo;
+          </p>
+        )}
+
+        {/* Explicit "Visit" link — clearer signal than just the headline being clickable */}
+        {m.website && (
+          <a
+            href={m.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-muted transition-colors hover:text-accent"
+          >
+            Visit {m.name}
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
       </section>
 
       {/* ── Body — Engler's voice on this brand ───────────────── */}

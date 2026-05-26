@@ -12,6 +12,7 @@ export type Manufacturer = {
   shortCopy: string; // 1-2 sentence Engler-voiced summary (used on homepage cards)
   longCopy: string; // expanded 3-4 sentence Engler-voiced version (used on /manufacturers page)
   logo: string; // logo URL — currently hotlinking from englerwindow.com's wixstatic CDN
+  website?: string; // manufacturer's official website — opens in new tab on deep page (closed-loop relaxed for context)
   origin?: string; // where the manufacturer is based
   products: string[]; // categories Engler installs (lifted from engler's industry-resources page)
   signatureLines?: string[]; // collection / product line names worth calling out
@@ -30,6 +31,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "For projects that demand the warmth of wood paired with modern engineering, we work with Loewen. Every Loewen window starts as solid wood laminations — never veneers — and pairs with extruded aluminum cladding and solid bronze, brass, zinc, or stainless steel hardware. Engler installs across Loewen's full product line, from the Cyprium Collection down to their StormForce series.",
     logo: "https://static.wixstatic.com/media/b7f13d_473f84e5973a46edaed105b279702f51~mv2.jpg",
+    website: "https://www.loewen.com",
     origin: "Steinbach, Manitoba, Canada",
     products: [
       "Inswing & outswing doors",
@@ -52,6 +54,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "Built for Florida's climate. ES Windows' impact-rated aluminum systems are our first call when a project needs hurricane code compliance without sacrificing the clean modern lines architects ask for. The full residential line — from the ES-5000 casement through the ES-EL400 sliding door — meets Florida HVHZ Category 5 standards while keeping slim profiles and tall configurations.",
     logo: "https://static.wixstatic.com/media/b7f13d_31f096e4cd3f4e1b88f38ad8990d4548~mv2.png",
+    website: "https://eswindows.com",
     products: [
       "Fixed windows",
       "Sliding glass doors",
@@ -78,6 +81,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "An entryway sets the tone for the whole home. We work with Signature Door because every one of theirs is built from solid wood, iron grillework, and decorative glass — manufactured to your exact specifications. Signature carries impact and non-impact testing up to Category 5 hurricane compliance, and every door is made-to-order in Altoona, Pennsylvania.",
     logo: "https://static.wixstatic.com/media/b7f13d_e8443e70324f4eff9def1cfbf34802a3~mv2.png",
+    website: "https://signaturedoor.com",
     origin: "Altoona, Pennsylvania",
     products: [
       "Custom entry doors",
@@ -98,6 +102,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "When clients want to dissolve the line between living room and lanai, we install Euro-Wall. Their folding and pocketing glass walls open entire facades to the water, the breeze, and the view. The Euro Vista Bi-Fold and Multi Slide systems are the centerpiece of every Engler project that calls for true indoor-outdoor living.",
     logo: "https://static.wixstatic.com/media/b7f13d_f4d9e0878f1145db9483a8a64423ee0b~mv2.png",
+    website: "https://eurowallsystems.com",
     products: [
       "Euro-Pivot Door",
       "Euro Vista Bi-Fold",
@@ -115,6 +120,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "Origin's slim-profile aluminum bifolds, casements, and french doors deliver the minimalist look modern Naples architecture demands — paired with the precision of a 20-year guarantee out of an English factory. Their family-run UK operation has spent over two decades perfecting aluminum systems for the discerning custom market.",
     logo: "https://static.wixstatic.com/media/b7f13d_d3a510d0ba5147b18eafdc7cb22fd295~mv2.jpg",
+    website: "https://www.origin-global.com",
     origin: "Manufactured in-house in the UK",
     products: [
       "Bi-fold doors",
@@ -134,6 +140,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "Arcadia has been part of Florida's architectural language for generations. We install their luxury sliding glass doors and casement windows on careful restorations and modern coastal builds alike — clean, timeless, and effortless to operate for decades.",
     logo: "https://static.wixstatic.com/media/b7f13d_4fd9ca12c1df4868a58318f47c856ca9~mv2.png", // TODO: replace with real Arcadia logo (currently using Engler logo as fallback since Engler's industry-resources page doesn't list Arcadia)
+    website: "https://arcadiacustom.com",
     products: ["Sliding glass doors", "Casement windows"],
   },
   {
@@ -147,6 +154,7 @@ export const manufacturers: Manufacturer[] = [
     longCopy:
       "The smallest details say the most about a home. Ashley Norton's solid-brass and bronze hardware — handcrafted by artisans since 1987 and tested for 5 million-plus cycles — is what we specify when nothing less than perfect will do. Available in seven brass finishes plus their signature Natural Bronze patina.",
     logo: "https://static.wixstatic.com/media/b7f13d_0e766c7b138247158488b06c7d22dfc2~mv2.jpg",
+    website: "https://ashleynorton.com",
     origin: "Founded 1987 · Europe & USA",
     products: [
       "Door hardware (levers, knobs, locksets)",
