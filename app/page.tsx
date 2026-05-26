@@ -219,15 +219,20 @@ export default function Home() {
           <ul className="grid grid-cols-2 gap-x-6 gap-y-10 text-center sm:grid-cols-3 lg:grid-cols-7">
             {manufacturers.map((m) => (
               <li
-                key={m.name}
-                className="flex flex-col items-center gap-3 border-l border-background/10 first:border-l-0 sm:[&:nth-child(4)]:border-l-0 lg:[&:nth-child(n)]:border-l lg:[&:nth-child(n)]:first:border-l-0"
+                key={m.slug}
+                className="border-l border-background/10 first:border-l-0 sm:[&:nth-child(4)]:border-l-0 lg:[&:nth-child(n)]:border-l lg:[&:nth-child(n)]:first:border-l-0"
               >
-                <span aria-hidden="true" className="text-[10px] text-accent">
-                  ◆
-                </span>
-                <span className="font-serif text-xl tracking-tight text-background/90 md:text-2xl">
-                  {m.name}
-                </span>
+                <Link
+                  href={`/manufacturers/${m.slug}`}
+                  className="group flex flex-col items-center gap-3"
+                >
+                  <span aria-hidden="true" className="text-[10px] text-accent">
+                    ◆
+                  </span>
+                  <span className="font-serif text-xl tracking-tight text-background/90 transition-colors group-hover:text-accent md:text-2xl">
+                    {m.name}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
