@@ -279,7 +279,7 @@ export default function Home() {
                       } as React.CSSProperties)
                     : undefined
                 }
-                className="group relative flex flex-col bg-background p-8 [transition-property:transform,background-color,box-shadow] duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1),ease-out,ease-out] hover:scale-[1.03] hover:bg-[var(--brand-tint)] hover:shadow-2xl lg:p-10"
+                className="group relative flex flex-col bg-background p-8 transition-all duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] hover:scale-[1.03] hover:bg-[var(--brand-tint)] hover:shadow-2xl lg:p-10"
               >
                 {/* Stretched link — covers the entire card, making the whole
                     article one big click target. Sits above the visual content
