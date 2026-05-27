@@ -199,6 +199,19 @@ export default async function ManufacturerDeepPage({
                 </p>
               </div>
             )}
+
+            {/* Product guide PDF — for architects/contractors who want real specs */}
+            {m.productGuide && (
+              <a
+                href={m.productGuide}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-12 inline-flex items-center gap-3 rounded-full border border-foreground px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+              >
+                Download {m.name} product guide
+                <span aria-hidden="true">↓</span>
+              </a>
+            )}
           </div>
         </div>
       </section>

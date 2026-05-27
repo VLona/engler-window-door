@@ -263,29 +263,54 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Card grid — thin lines between cells via gap-px on bg-line */}
-          <div className="grid grid-cols-1 gap-px overflow-hidden border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card grid — no dividers, no gaps. All cards share bg-background,
+              so they blend into one continuous surface. Hover scale + shadow
+              creates the only visual separation between cards. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {manufacturers.map((m) => (
               <article
                 key={m.slug}
-                className="flex flex-col bg-background p-8 transition-colors hover:bg-line/30 lg:p-10"
+                style={
+                  m.brandColor
+                    ? ({
+                        "--brand-color": m.brandColor,
+                        // Append 1A to hex (= ~10% alpha) for the subtle bg tint
+                        "--brand-tint": `${m.brandColor}1A`,
+                      } as React.CSSProperties)
+                    : undefined
+                }
+                className="group relative flex flex-col bg-background p-8 [transition-property:transform,background-color,box-shadow] duration-500 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1),ease-out,ease-out] hover:scale-[1.03] hover:bg-[var(--brand-tint)] hover:shadow-2xl lg:p-10"
               >
-                <h3 className="font-serif text-3xl tracking-tight text-foreground">
+                {/* Stretched link — covers the entire card, making the whole
+                    article one big click target. Sits above the visual content
+                    so any click anywhere on the card navigates to the brand page. */}
+                <Link
+                  href={`/manufacturers/${m.slug}`}
+                  aria-label={`View ${m.name} manufacturer page`}
+                  className="absolute inset-0 z-10"
+                />
+
+                <h3 className="font-serif text-3xl tracking-tight text-foreground group-hover:text-[var(--brand-color)]">
                   {m.name}
                 </h3>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.25em] text-accent">
+                <p className="mt-2 text-[11px] uppercase tracking-[0.25em] text-accent group-hover:text-[var(--brand-color)]">
                   {m.category}
                 </p>
                 <p className="mt-5 flex-1 text-sm leading-relaxed text-muted">
                   {m.shortCopy}
                 </p>
-                <Link
-                  href={`/manufacturers/${m.slug}`}
-                  className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground transition hover:text-accent"
-                >
+                {/* Visible "Check X" label — no longer a Link itself (the
+                    stretched link above handles all clicks). Still visually
+                    looks like a CTA. */}
+                <span className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground group-hover:text-[var(--brand-color)]">
                   Check {m.name}
-                  <span aria-hidden="true">→</span>
-                </Link>
+                  <span
+                    aria-hidden="true"
+                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-2"
+                  >
+                    →
+                  </span>
+                </span>
               </article>
             ))}
           </div>

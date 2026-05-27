@@ -60,8 +60,22 @@ export default function ManufacturersPage() {
             <article
               key={m.slug}
               id={m.slug}
-              className="scroll-mt-24 border-t border-line pt-12 lg:pt-16"
+              style={
+                m.brandColor
+                  ? ({
+                      "--brand-color": m.brandColor,
+                    } as React.CSSProperties)
+                  : undefined
+              }
+              className="group relative scroll-mt-24 border-t border-line pt-12 lg:pt-16"
             >
+              {/* Stretched link — covers the entire section, making
+                  the whole brand block one big click target. */}
+              <Link
+                href={`/manufacturers/${m.slug}`}
+                aria-label={`View ${m.name} manufacturer page`}
+                className="absolute inset-0 z-10"
+              />
               <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
                 {/* Left column: logo only — bigger, sole brand element */}
                 <div className="lg:col-span-4">
@@ -82,7 +96,7 @@ export default function ManufacturersPage() {
                     {String(i + 1).padStart(2, "0")}
                   </p>
 
-                  <h2 className="mt-4 font-serif text-5xl tracking-tight text-foreground sm:text-6xl">
+                  <h2 className="mt-4 font-serif text-5xl tracking-tight text-foreground transition-colors duration-200 group-hover:text-[var(--brand-color)] sm:text-6xl">
                     {m.name}
                   </h2>
 
@@ -141,20 +155,23 @@ export default function ManufacturersPage() {
                     )}
                   </div>
 
-                  {/* CTA — primary: go to deep brand page. quote CTA lives on the deep page. */}
+                  {/* CTA — primary: visible "Check X" label is now a decorative
+                      span (the stretched link above handles clicks). "Or request
+                      a quote" stays as a real Link at z-20 so it cuts through
+                      the stretched link and routes to /quote. */}
                   <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                    <Link
-                      href={`/manufacturers/${m.slug}`}
-                      className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
-                    >
+                    <span className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors group-hover:bg-accent-dark">
                       Check {m.name}
-                      <span aria-hidden="true" className="ml-2">
+                      <span
+                        aria-hidden="true"
+                        className="ml-2 inline-block transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-2"
+                      >
                         →
                       </span>
-                    </Link>
+                    </span>
                     <Link
                       href={`/quote?brand=${encodeURIComponent(m.name)}`}
-                      className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-foreground underline-offset-4 transition hover:text-accent hover:underline"
+                      className="relative z-20 inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-foreground underline-offset-4 transition hover:text-accent hover:underline"
                     >
                       Or request a quote →
                     </Link>
