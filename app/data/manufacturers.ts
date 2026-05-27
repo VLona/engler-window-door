@@ -12,11 +12,10 @@ export type Manufacturer = {
   shortCopy: string; // 1-2 sentence Engler-voiced summary (used on homepage cards)
   longCopy: string; // expanded 3-4 sentence Engler-voiced version (used on /manufacturers page)
   logo: string; // logo URL — currently hotlinking from englerwindow.com's wixstatic CDN
-  website?: string; // manufacturer's official website — opens in new tab on deep page (closed-loop relaxed for context)
   origin?: string; // where the manufacturer is based
   products: string[]; // categories Engler installs (lifted from engler's industry-resources page)
   signatureLines?: string[]; // collection / product line names worth calling out
-  website?: string; // brand's official site — opens in new tab from logo + name + "Visit" link on deep page
+  website?: string; // brand's official site — opens in new tab from logo + name + "Visit" link on deep page (closed-loop relaxed for transparency)
   productGuide?: string; // URL to brand's product brochure PDF — renders a "Download product guide" CTA on the deep page
   brandColor?: string; // hex (#RRGGBB) — drives the hover tint on the homepage manufacturer cards. brand-distinct color picked to evoke each manufacturer's identity.
 };
