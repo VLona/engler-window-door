@@ -2,6 +2,7 @@ import Link from "next/link";
 import ProjectCarousel from "./components/ProjectCarousel";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import FadeIn from "./components/FadeIn";
 import { manufacturers } from "./data/manufacturers";
 
 // Real testimonials lifted from englerwindow.com — homeowner / architect / builder triangle.
@@ -93,109 +94,58 @@ export default function Home() {
             </dl>
           </div>
 
-          {/* Right: photo with navy offset */}
+          {/* Right: rotating carousel of Engler installs (3s auto-advance,
+              clickable → /portfolio), with the navy offset block behind it */}
           <div className="lg:col-span-7">
             <div className="relative">
               <div
                 aria-hidden="true"
                 className="absolute -bottom-4 -right-4 h-full w-full bg-accent lg:-bottom-6 lg:-right-6"
               />
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-line lg:aspect-[5/6]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://static.wixstatic.com/media/b7f13d_37a8746101b44356aab9456a52ef8ef0~mv2.jpg"
-                  alt="Engler Window & Door — Port Royal Residence project"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <ProjectCarousel
+                className="relative aspect-[4/5] w-full bg-line lg:aspect-[5/6]"
+                autoAdvanceMs={3000}
+                linkHref="/portfolio"
+              />
             </div>
             <p className="mt-10 text-xs uppercase tracking-[0.2em] text-muted lg:mt-12">
-              <span className="text-accent">Project ·</span> Port Royal
-              Residence, Naples
+              <span className="text-accent">Selected work ·</span> Engler
+              installations across Southwest Florida
             </p>
           </div>
         </div>
       </section>
 
       {/* ── Projects gallery ───────────────────────────────────── */}
+      {/* ── Portfolio CTA — compact replacement for the old 3-photo gallery.
+          Hero carousel already shows rotating photos; full gallery lives at
+          /portfolio. This section is just the bridge between hero and band. */}
       <section
         id="work"
-        className="mx-auto max-w-7xl px-6 pb-24 lg:px-10 lg:pb-32"
+        className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10 lg:py-32"
       >
-        <div className="mb-16 max-w-2xl">
+        <FadeIn>
           <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
             <span className="h-px w-8 bg-accent" />
             Selected Work
+            <span className="h-px w-8 bg-accent" />
           </span>
-          <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            A portfolio built across Naples, the Gulf Coast, and{" "}
+          <h2 className="mt-6 font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            A portfolio across Naples, the Gulf Coast, and{" "}
             <em className="italic text-accent">beyond.</em>
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-            Each project begins with a homeowner, an architect, or a builder
-            asking for something specific — and ends with us delivering it.
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted">
+            Twenty years of custom windows and doors — every project touched
+            personally by Mike, every install in a home built to last.
           </p>
-        </div>
-
-        {/* Asymmetric grid: one tall photo left, two stacked right */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
-          <figure className="lg:col-span-7">
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-line">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://static.wixstatic.com/media/b7f13d_edd39283aa6a4e838293f02a0bc8989e~mv2.jpg"
-                alt="Engler Window & Door — Private Residence in Naples"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">
-              <span className="text-accent">Project ·</span> Private Residence,
-              Naples
-            </figcaption>
-          </figure>
-
-          <div className="flex flex-col gap-8 lg:col-span-5 lg:gap-10">
-            <figure>
-              <div className="relative aspect-[5/4] w-full overflow-hidden bg-line">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://static.wixstatic.com/media/b7f13d_77a82cc5d6b249e885ec0be677e77a50~mv2.jpg"
-                  alt="Engler Window & Door — 505 Fifth Ave S, Naples"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">
-                <span className="text-accent">Project ·</span> 505 Fifth Ave S,
-                Naples
-              </figcaption>
-            </figure>
-
-            <figure>
-              <div className="relative aspect-[5/4] w-full overflow-hidden bg-line">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://static.wixstatic.com/media/b7f13d_1e4019b1ef074ad1b489db26ccbb1491~mv2.jpg"
-                  alt="Engler Window & Door — Private Residence in North Carolina"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-muted">
-                <span className="text-accent">Project ·</span> Private
-                Residence, North Carolina
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-
-        <p className="mt-16 text-center text-sm text-muted">
-          Want to see more?{" "}
           <Link
-            href="/quote"
-            className="font-medium text-foreground underline-offset-4 transition hover:text-accent hover:underline"
+            href="/portfolio"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
           >
-            Request a portfolio walkthrough →
+            See full portfolio
+            <span aria-hidden="true">→</span>
           </Link>
-        </p>
+        </FadeIn>
       </section>
 
       {/* ── Manufacturer band (intro to detail below) ──────────── */}
@@ -267,9 +217,9 @@ export default function Home() {
               so they blend into one continuous surface. Hover scale + shadow
               creates the only visual separation between cards. */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {manufacturers.map((m) => (
+            {manufacturers.map((m, i) => (
+              <FadeIn key={m.slug} delay={i * 50} className="h-full">
               <article
-                key={m.slug}
                 style={
                   m.brandColor
                     ? ({
@@ -279,7 +229,7 @@ export default function Home() {
                       } as React.CSSProperties)
                     : undefined
                 }
-                className="group relative flex flex-col bg-background p-8 transition-all duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] hover:scale-[1.03] hover:bg-[var(--brand-tint)] hover:shadow-2xl lg:p-10"
+                className="group relative flex h-full flex-col bg-background p-8 transition-all duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] hover:scale-[1.03] hover:bg-[var(--brand-tint)] hover:shadow-2xl lg:p-10"
               >
                 {/* Stretched link — covers the entire card, making the whole
                     article one big click target. Sits above the visual content
@@ -312,6 +262,7 @@ export default function Home() {
                   </span>
                 </span>
               </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -332,15 +283,17 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
-            {testimonials.map((t) => (
-              <figure key={t.name}>
-                <blockquote className="font-serif text-xl leading-relaxed text-background/95 md:text-2xl">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6 text-xs uppercase tracking-[0.2em] text-background/60">
-                  <span className="text-accent">—</span> {t.name} · {t.role}
-                </figcaption>
-              </figure>
+            {testimonials.map((t, i) => (
+              <FadeIn key={t.name} delay={i * 80}>
+                <figure>
+                  <blockquote className="font-serif text-xl leading-relaxed text-background/95 md:text-2xl">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-6 text-xs uppercase tracking-[0.2em] text-background/60">
+                    <span className="text-accent">—</span> {t.name} · {t.role}
+                  </figcaption>
+                </figure>
+              </FadeIn>
             ))}
           </div>
         </div>

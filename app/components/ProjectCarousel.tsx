@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // All slides live in this array — add/remove entries here, JSX below stays the same.
 const slides = [
@@ -26,29 +27,38 @@ const slides = [
   },
 ];
 
-const AUTO_ADVANCE_MS = 5000;
+const AUTO_ADVANCE_MS_DEFAULT = 5000;
 
 type Props = {
   // Override the carousel's sizing. Default works for the full-width image strip;
   // pass something like "aspect-[4/3] lg:aspect-auto lg:min-h-[480px]" when
   // dropping it into a different layout (e.g. the CTA banner split column).
   className?: string;
+  // How often to auto-advance, in milliseconds. Default 5000 (5s). Pass 3000
+  // for a snappier hero feel.
+  autoAdvanceMs?: number;
+  // Optional URL — if provided, the whole carousel becomes a clickable link
+  // (prev/next/dot buttons still work independently because they sit above
+  // the link's z-index).
+  linkHref?: string;
 };
 
 export default function ProjectCarousel({
   className = "aspect-[21/9] w-full",
+  autoAdvanceMs = AUTO_ADVANCE_MS_DEFAULT,
+  linkHref,
 }: Props) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // Auto-advance every 5 seconds, unless the user is hovering (paused).
+  // Auto-advance at the configured interval, unless the user is hovering (paused).
   useEffect(() => {
     if (paused) return;
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % slides.length);
-    }, AUTO_ADVANCE_MS);
+    }, autoAdvanceMs);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, autoAdvanceMs]);
 
   const prev = () =>
     setIndex((i) => (i - 1 + slides.length) % slides.length);
@@ -82,12 +92,22 @@ export default function ProjectCarousel({
         className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink/70 to-transparent"
       />
 
+      {/* Optional whole-carousel link — sits at z-10. Buttons + dots below
+          are z-20 so they handle their own clicks without triggering the link. */}
+      {linkHref && (
+        <Link
+          href={linkHref}
+          aria-label="View Engler portfolio"
+          className="absolute inset-0 z-10"
+        />
+      )}
+
       {/* Prev button */}
       <button
         type="button"
         onClick={prev}
         aria-label="Previous project"
-        className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-background backdrop-blur transition hover:bg-accent md:left-6 md:h-14 md:w-14"
+        className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-background backdrop-blur transition hover:bg-accent md:left-6 md:h-14 md:w-14"
       >
         <span aria-hidden="true" className="text-xl leading-none">
           ←
@@ -99,7 +119,7 @@ export default function ProjectCarousel({
         type="button"
         onClick={next}
         aria-label="Next project"
-        className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-background backdrop-blur transition hover:bg-accent md:right-6 md:h-14 md:w-14"
+        className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-background backdrop-blur transition hover:bg-accent md:right-6 md:h-14 md:w-14"
       >
         <span aria-hidden="true" className="text-xl leading-none">
           →
@@ -107,7 +127,7 @@ export default function ProjectCarousel({
       </button>
 
       {/* Dot/bar indicators */}
-      <div className="absolute inset-x-0 bottom-6 flex items-center justify-center gap-2">
+      <div className="absolute inset-x-0 bottom-6 z-20 flex items-center justify-center gap-2">
         {slides.map((_, i) => (
           <button
             key={i}

@@ -2,105 +2,97 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import FadeIn from "../components/FadeIn";
+import {
+  getProjectsByCategory,
+  categoryMeta,
+  type ProjectCategory,
+} from "../data/portfolio";
 
 export const metadata: Metadata = {
   title: "Portfolio — Engler Window & Door",
   description:
-    "Selected custom window and door installations by Engler Window & Door — Naples, the Gulf Coast, and beyond. Twenty years of homes for homeowners, architects, and builders.",
+    "Browse Engler's portfolio by category — windows and doors. Twenty years of custom installations across Naples, the Gulf Coast, and beyond.",
 };
 
-// Every photo on this page lives in this array — add/remove entries here,
-// the grid below renders them automatically.
-const projects = [
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_37a8746101b44356aab9456a52ef8ef0~mv2.jpg/v1/fill/w_1200,h_900,q_90,enc_avif,quality_auto/Port%20Royal%20Residence.jpg",
-    caption: "Port Royal Residence · Naples",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_77a82cc5d6b249e885ec0be677e77a50~mv2.jpg/v1/fill/w_1200,h_900,q_90,enc_avif,quality_auto/505%20Fifth%20Ave%20S.jpg",
-    caption: "505 Fifth Ave S · Naples",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_edd39283aa6a4e838293f02a0bc8989e~mv2.jpg/v1/fill/w_1200,h_900,q_90,enc_avif,quality_auto/Naples%20Private%20Residence.jpg",
-    caption: "Private Residence · Naples",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_1e4019b1ef074ad1b489db26ccbb1491~mv2.jpg/v1/fill/w_1200,h_900,q_90,enc_avif,quality_auto/North%20Carolina%20Residence_JPG.jpg",
-    caption: "Private Residence · North Carolina",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_7ef984acaf8c4158a95e1999ea2560d7~mv2.jpeg/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_7ef984acaf8c4158a95e1999ea2560d7~mv2.jpeg",
-    caption: "Floor-to-Ceiling Residence · Naples",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg",
-    caption: "Featured Installation · Gulf Coast",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_259ecae172654e5ca9fffbad5c79d8d1~mv2.jpeg/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_259ecae172654e5ca9fffbad5c79d8d1~mv2.jpeg",
-    caption: "Coastal Residence · Naples",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_90156cd07e8a4d8e942f9f815ff87e27~mv2.jpeg/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_90156cd07e8a4d8e942f9f815ff87e27~mv2.jpeg",
-    caption: "Custom Project · Southwest Florida",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg",
-    caption: "Architect Collaboration · Naples",
-  },
-  {
-    src: "https://static.wixstatic.com/media/b7f13d_211035c2186649498791b6febb721281~mv2.jpeg/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_211035c2186649498791b6febb721281~mv2.jpeg",
-    caption: "Recent Project · Gulf Coast",
-  },
+// The two category cards on this landing page. Each shows a preview photo
+// (the first project in that category) and links to the dedicated page.
+const categories: { slug: ProjectCategory; cta: string }[] = [
+  { slug: "windows", cta: "Browse Windows →" },
+  { slug: "doors", cta: "Browse Doors →" },
 ];
 
-export default function PortfolioPage() {
+export default function PortfolioLandingPage() {
   return (
     <div className="bg-background text-foreground">
       <SiteHeader />
 
       {/* ── Page header ────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 lg:px-10 lg:pt-28 lg:pb-20">
+      <section className="mx-auto max-w-7xl px-6 pt-20 pb-12 lg:px-10 lg:pt-28 lg:pb-16">
         <div className="max-w-3xl">
           <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
             <span className="h-px w-8 bg-accent" />
             Portfolio · Selected Work
           </p>
           <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Twenty years of custom windows &amp; doors,{" "}
-            <em className="italic text-accent">across the Gulf Coast.</em>
+            Twenty years of work,{" "}
+            <em className="italic text-accent">organized by craft.</em>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-            A selection of Engler installations — homes built with Loewen, ES
-            Windows, Signature Door, Euro-Wall, Origin, Arcadia, and Ashley
-            Norton hardware. Every project touched personally by Mike.
+            Browse by category — windows or doors. Every photo is a real
+            Engler installation, every project touched personally by Mike.
           </p>
         </div>
       </section>
 
-      {/* ── Photo grid ─────────────────────────────────────────── */}
+      {/* ── Two category cards ──────────────────────────────────── */}
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-10 lg:pb-32">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-          {projects.map((p, i) => (
-            <figure key={p.src} className="group">
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-line">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={p.src}
-                  alt={`Engler Window & Door — ${p.caption}`}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <figcaption className="mt-4 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.2em] text-muted">
-                <span>
-                  <span className="text-accent">
-                    {String(i + 1).padStart(2, "0")} ·
-                  </span>{" "}
-                  {p.caption}
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+          {categories.map((c, i) => {
+            const items = getProjectsByCategory(c.slug);
+            const meta = categoryMeta[c.slug];
+            const previewPhoto = items[0]?.src;
+            return (
+              <FadeIn key={c.slug} delay={i * 100} className="h-full">
+                <Link
+                  href={`/portfolio/${c.slug}`}
+                  className="group relative block aspect-[5/6] w-full overflow-hidden bg-line"
+                >
+                  {previewPhoto && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={previewPhoto}
+                      alt={`${meta.name} — Engler Window & Door portfolio preview`}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
+
+                  {/* Always-on dark gradient at the bottom for legibility */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"
+                  />
+
+                  {/* Card content overlay */}
+                  <div className="absolute inset-x-0 bottom-0 p-8 lg:p-10">
+                    <p className="text-xs uppercase tracking-[0.25em] text-background/70">
+                      Category · {String(i + 1).padStart(2, "0")} ·{" "}
+                      {items.length} project{items.length === 1 ? "" : "s"}
+                    </p>
+                    <h2 className="mt-3 font-serif text-5xl tracking-tight text-background sm:text-6xl">
+                      {meta.name}
+                    </h2>
+                    <p className="mt-4 max-w-md text-sm leading-relaxed text-background/85">
+                      {meta.intro}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-background transition-colors group-hover:text-accent">
+                      {c.cta}
+                    </span>
+                  </div>
+                </Link>
+              </FadeIn>
+            );
+          })}
         </div>
       </section>
 
@@ -122,7 +114,7 @@ export default function PortfolioPage() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/#quote"
+              href="/quote"
               className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
             >
               Request a quote
