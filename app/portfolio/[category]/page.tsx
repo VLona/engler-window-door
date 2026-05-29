@@ -74,25 +74,40 @@ export default async function PortfolioCategoryPage({
         </div>
       </div>
 
-      {/* ── Page header ────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-10 lg:pt-24 lg:pb-16">
-        <div className="max-w-3xl">
-          <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
-            <span className="h-px w-8 bg-accent" />
-            Portfolio · {meta.name} · {items.length} project
-            {items.length === 1 ? "" : "s"}
-          </p>
-          <h1 className="mt-6 font-serif text-6xl leading-[1.05] tracking-tight text-foreground sm:text-7xl">
-            {meta.name}.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">
-            {meta.intro}
-          </p>
+      {/* ── Immersive image hero ───────────────────────────────── */}
+      <section className="relative overflow-hidden bg-ink">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={meta.heroImage}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {/* Dark gradient overlay so the overlaid text stays legible */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/40"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-40">
+          <FadeIn className="max-w-3xl">
+            <p className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-background/70">
+              <span className="h-px w-8 bg-accent" />
+              Portfolio · {meta.name} · {items.length} project
+              {items.length === 1 ? "" : "s"}
+            </p>
+            <h1 className="mt-6 font-serif text-6xl leading-[1.02] tracking-tight text-background sm:text-7xl lg:text-8xl">
+              {meta.name}.
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-background/85">
+              {meta.intro}
+            </p>
+          </FadeIn>
         </div>
       </section>
 
       {/* ── Photo grid ─────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
+      <section className="mx-auto max-w-7xl px-6 pt-20 pb-20 lg:px-10 lg:pt-28 lg:pb-28">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {items.map((p, i) => (
             <FadeIn key={p.src} delay={Math.min(i, 8) * 40}>

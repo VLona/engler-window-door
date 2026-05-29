@@ -11,6 +11,11 @@ const WIX_SIZE = "/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_";
 export const wixUrl = (file: string) =>
   `${WIX_BASE}${file}${WIX_SIZE}${file}`;
 
+// Wide, cropped variant for full-bleed hero backgrounds (fill = crop to fill
+// the frame, vs fit = letterbox). Used by the category page heros.
+const heroUrl = (file: string) =>
+  `${WIX_BASE}${file}/v1/fill/w_1920,h_1080,q_90,enc_avif,quality_auto/b7f13d_${file}`;
+
 export type ProjectCategory = "windows" | "doors";
 
 export type Project = {
@@ -104,16 +109,19 @@ export function getProjectsByCategory(category: ProjectCategory): Project[] {
 // /portfolio/[category] pages without repeating strings.
 export const categoryMeta: Record<
   ProjectCategory,
-  { name: string; intro: string }
+  { name: string; intro: string; heroImage: string }
 > = {
   windows: {
     name: "Windows",
     intro:
       "From floor-to-ceiling picture windows to impact-rated casements and lift-and-slide systems — every install is engineered for Florida's climate and the architecture it serves.",
+    // Deliberately NOT one of the homepage carousel photos — a fresh shot.
+    heroImage: heroUrl("f0dffdd2eeb24d4db3ceaccba58bf4c6~mv2.jpeg"),
   },
   doors: {
     name: "Doors",
     intro:
       "Custom mahogany entryways, folding glass walls that dissolve into the lanai, multi-track sliders, and one-of-a-kind iron grillework — every door specified for the residence it opens.",
+    heroImage: heroUrl("edd39283aa6a4e838293f02a0bc8989e~mv2.jpg"),
   },
 };
