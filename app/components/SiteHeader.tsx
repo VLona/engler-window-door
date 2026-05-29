@@ -33,6 +33,11 @@ export default function SiteHeader() {
 
           <ul className="hidden items-center gap-10 text-sm text-muted md:flex">
             <li>
+              <Link href="/" className="transition-colors hover:text-accent">
+                Home
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/portfolio"
                 className="transition-colors hover:text-accent"
