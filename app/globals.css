@@ -20,3 +20,24 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Smooth scrolling for in-page anchor jumps (e.g. /portfolio#doors,
+   /manufacturers#loewen). Glides instead of teleporting. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect users who've asked their OS to reduce motion — turn off smooth
+   scroll + neutralize transitions/animations for them. Accessibility. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

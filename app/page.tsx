@@ -59,15 +59,21 @@ export default function Home() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/quote"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg"
               >
                 Start your project
               </Link>
               <a
                 href="#work"
-                className="inline-flex items-center justify-center px-2 py-3.5 text-sm font-medium text-foreground underline-offset-4 transition hover:text-accent hover:underline"
+                className="group inline-flex items-center justify-center gap-1.5 px-2 py-3.5 text-sm font-medium text-foreground transition-colors hover:text-accent"
               >
-                See our work →
+                See our work
+                <span
+                  aria-hidden="true"
+                  className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </a>
             </div>
 
@@ -140,7 +146,7 @@ export default function Home() {
           </p>
           <Link
             href="/portfolio"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg"
           >
             See full portfolio
             <span aria-hidden="true">→</span>
@@ -303,7 +309,7 @@ export default function Home() {
       <section id="about" className="bg-background py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
-            <div className="lg:col-span-5">
+            <FadeIn className="lg:col-span-5">
               <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
                 <span className="h-px w-8 bg-accent" />
                 About Engler
@@ -312,9 +318,12 @@ export default function Home() {
                 Twenty years, one family,{" "}
                 <em className="italic text-accent">one standard.</em>
               </h2>
-            </div>
+            </FadeIn>
 
-            <div className="space-y-6 text-base leading-relaxed text-muted lg:col-span-7">
+            <FadeIn
+              delay={150}
+              className="space-y-6 text-base leading-relaxed text-muted lg:col-span-7"
+            >
               <p>
                 Engler Window &amp; Door was founded in 2003 by Mike Engler in
                 Naples, Florida. What started as one man insisting on doing
@@ -341,44 +350,50 @@ export default function Home() {
                 projects from Naples to North Carolina — every one of them
                 touched personally by Mike.
               </p>
-            </div>
+            </FadeIn>
           </div>
 
           {/* Three core values — lifted from the real englerwindow.com */}
           <div className="mt-20 grid grid-cols-1 gap-12 border-t border-line pt-16 md:grid-cols-3 md:gap-8">
-            <article>
-              <span className="font-serif text-5xl text-accent">01</span>
-              <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
-                Distinctive products
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                We carry only the manufacturers that meet our standard for
-                design, performance, and warranty. No catalogue padding, no
-                house brands.
-              </p>
-            </article>
-            <article>
-              <span className="font-serif text-5xl text-accent">02</span>
-              <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
-                Long-term service
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                Specialized service that doesn&apos;t end the day we hand
-                over the keys. The same Engler team is here in year ten as
-                it was in year one.
-              </p>
-            </article>
-            <article>
-              <span className="font-serif text-5xl text-accent">03</span>
-              <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
-                Fair &amp; honest
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                Direct pricing, straight answers, and a quote you can take
-                to your contractor. Twenty years of referrals come from how
-                we handle the hard conversations.
-              </p>
-            </article>
+            <FadeIn>
+              <article>
+                <span className="font-serif text-5xl text-accent">01</span>
+                <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
+                  Distinctive products
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  We carry only the manufacturers that meet our standard for
+                  design, performance, and warranty. No catalogue padding, no
+                  house brands.
+                </p>
+              </article>
+            </FadeIn>
+            <FadeIn delay={120}>
+              <article>
+                <span className="font-serif text-5xl text-accent">02</span>
+                <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
+                  Long-term service
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Specialized service that doesn&apos;t end the day we hand
+                  over the keys. The same Engler team is here in year ten as
+                  it was in year one.
+                </p>
+              </article>
+            </FadeIn>
+            <FadeIn delay={240}>
+              <article>
+                <span className="font-serif text-5xl text-accent">03</span>
+                <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
+                  Fair &amp; honest
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  Direct pricing, straight answers, and a quote you can take
+                  to your contractor. Twenty years of referrals come from how
+                  we handle the hard conversations.
+                </p>
+              </article>
+            </FadeIn>
           </div>
 
           <p className="mt-16 text-center font-serif text-lg italic text-muted">
@@ -412,7 +427,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="tel:+12393312390"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors hover:bg-accent-dark"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg"
               >
                 Call 239.331.2390
               </a>
