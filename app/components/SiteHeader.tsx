@@ -58,7 +58,7 @@ export default function SiteHeader() {
             </li>
             <li>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="transition-colors hover:text-accent"
               >
                 Contact
