@@ -5,28 +5,6 @@ import SiteFooter from "./components/SiteFooter";
 import FadeIn from "./components/FadeIn";
 import { manufacturers } from "./data/manufacturers";
 
-// Real testimonials lifted from englerwindow.com — homeowner / architect / builder triangle.
-const testimonials = [
-  {
-    quote:
-      "Mr. Engler and his team are extremely professional and deliver excellent quality in their product and service.",
-    name: "Patty Wareham",
-    role: "Homeowner",
-  },
-  {
-    quote:
-      "It's always a pleasure working with Mike and his team, who are very knowledgeable and detail-oriented, helpful and courteous.",
-    name: "Irma Sefa",
-    role: "Architect",
-  },
-  {
-    quote:
-      "Mike doesn't just provide windows and doors, he is a partner in creating true to form architectural elements.",
-    name: "Nautilus Homes",
-    role: "Builder",
-  },
-];
-
 export default function Home() {
   return (
     <div className="bg-background text-foreground">
@@ -200,108 +178,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Manufacturers detail (cards) ───────────────────────── */}
-      <section className="bg-background py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16 max-w-2xl">
-            <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
-              <span className="h-px w-8 bg-accent" />
-              Our Manufacturers
+      {/* ── Testimonial — single cinematic pull quote.
+          Replaced the 3-column grid + the entire 7-card manufacturer-details
+          section with this one editorial moment. The /manufacturers page now
+          owns the detailed brand storytelling; the homepage doesn't repeat it. */}
+      <section className="bg-ink py-32 text-background lg:py-44">
+        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+          <FadeIn>
+            <span aria-hidden="true" className="font-serif text-6xl leading-none text-accent">
+              &ldquo;
             </span>
-            <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Seven names. One{" "}
-              <em className="italic text-accent">standard of craft.</em>
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-muted">
-              Engler doesn&apos;t carry a catalogue. We&apos;ve spent twenty
-              years narrowing the field to the manufacturers who match our work
-              — and we install nothing else.
-            </p>
-          </div>
-
-          {/* Card grid — no dividers, no gaps. All cards share bg-background,
-              so they blend into one continuous surface. Hover scale + shadow
-              creates the only visual separation between cards. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {manufacturers.map((m, i) => (
-              <FadeIn key={m.slug} delay={i * 50} className="h-full">
-              <article
-                style={
-                  m.brandColor
-                    ? ({
-                        "--brand-color": m.brandColor,
-                        // Append 1A to hex (= ~10% alpha) for the subtle bg tint
-                        "--brand-tint": `${m.brandColor}1A`,
-                      } as React.CSSProperties)
-                    : undefined
-                }
-                className="group relative flex h-full flex-col bg-background p-8 transition-all duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] hover:scale-[1.03] hover:bg-[var(--brand-tint)] hover:shadow-2xl lg:p-10"
-              >
-                {/* Stretched link — covers the entire card, making the whole
-                    article one big click target. Sits above the visual content
-                    so any click anywhere on the card navigates to the brand page. */}
-                <Link
-                  href={`/manufacturers/${m.slug}`}
-                  aria-label={`View ${m.name} manufacturer page`}
-                  className="absolute inset-0 z-10"
-                />
-
-                <h3 className="font-serif text-3xl tracking-tight text-foreground group-hover:text-[var(--brand-color)]">
-                  {m.name}
-                </h3>
-                <p className="mt-2 text-[11px] uppercase tracking-[0.25em] text-accent group-hover:text-[var(--brand-color)]">
-                  {m.category}
-                </p>
-                <p className="mt-5 flex-1 text-sm leading-relaxed text-muted">
-                  {m.shortCopy}
-                </p>
-                {/* Visible "Check X" label — no longer a Link itself (the
-                    stretched link above handles all clicks). Still visually
-                    looks like a CTA. */}
-                <span className="mt-8 inline-flex items-center gap-2 self-start text-sm font-medium text-foreground group-hover:text-[var(--brand-color)]">
-                  Check {m.name}
-                  <span
-                    aria-hidden="true"
-                    className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-2"
-                  >
-                    →
-                  </span>
-                </span>
-              </article>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Testimonials ───────────────────────────────────────── */}
-      <section className="bg-ink py-24 text-background lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16 max-w-2xl">
-            <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-background/60">
-              <span className="h-px w-8 bg-accent" />
-              Testimonials
-            </span>
-            <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tight text-background sm:text-5xl">
-              What homeowners, architects, and builders{" "}
-              <em className="italic text-accent">say about Mike.</em>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
-            {testimonials.map((t, i) => (
-              <FadeIn key={t.name} delay={i * 80}>
-                <figure>
-                  <blockquote className="font-serif text-xl leading-relaxed text-background/95 md:text-2xl">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-6 text-xs uppercase tracking-[0.2em] text-background/60">
-                    <span className="text-accent">—</span> {t.name} · {t.role}
-                  </figcaption>
-                </figure>
-              </FadeIn>
-            ))}
-          </div>
+            <blockquote className="mt-4 font-serif text-3xl italic leading-[1.2] tracking-tight text-background sm:text-4xl lg:text-5xl">
+              Mike doesn&apos;t just provide windows and doors — he is a
+              partner in creating true-to-form architectural elements.
+            </blockquote>
+            <figcaption className="mt-12 text-xs uppercase tracking-[0.3em] text-background/60">
+              <span className="text-accent">—</span> Nautilus Homes
+              <span className="mx-2 text-background/40">·</span>
+              Custom Builder
+            </figcaption>
+          </FadeIn>
         </div>
       </section>
 
