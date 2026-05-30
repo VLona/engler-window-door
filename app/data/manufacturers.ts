@@ -147,7 +147,7 @@ export const manufacturers: Manufacturer[] = [
       "Arcadia has been part of Florida's architectural language for generations. We install them on careful restorations and modern coastal builds alike — clean, timeless, and effortless to operate for decades.",
     longCopy:
       "Arcadia has been part of Florida's architectural language for generations. We install their luxury sliding glass doors and casement windows on careful restorations and modern coastal builds alike — clean, timeless, and effortless to operate for decades.",
-    logo: "https://static.wixstatic.com/media/b7f13d_4fd9ca12c1df4868a58318f47c856ca9~mv2.png", // TODO: replace with real Arcadia logo (currently using Engler logo as fallback since Engler's industry-resources page doesn't list Arcadia)
+    logo: "/arcadia-logo.png", // Self-hosted from /public — replaces the Engler-logo fallback. Originally pulled from arcadiacustom.com.
     website: "https://arcadiacustom.com",
     brandColor: "#A8AC9F", // sage moss — Florida coastal classic
     products: ["Sliding glass doors", "Casement windows"],

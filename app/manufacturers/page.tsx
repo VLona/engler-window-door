@@ -56,7 +56,7 @@ export default function ManufacturersPage() {
       {/* Brand sections */}
       <section className="mx-auto max-w-7xl px-6 pb-24 lg:px-10 lg:pb-32">
         <div className="space-y-24 lg:space-y-32">
-          {manufacturers.map((m, i) => (
+          {manufacturers.map((m) => (
             <article
               key={m.slug}
               id={m.slug}
@@ -84,19 +84,17 @@ export default function ManufacturersPage() {
                     <img
                       src={m.logo}
                       alt={`${m.name} logo`}
-                      className="max-h-36 w-auto object-contain lg:max-h-44"
+                      className="h-28 w-auto object-contain lg:h-36"
                     />
                   </div>
                 </div>
 
                 {/* Right column: heading block + copy + products + CTA */}
                 <div className="lg:col-span-8">
-                  {/* Heading block — number + name + classification + origin */}
-                  <p className="font-serif text-5xl text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-
-                  <h2 className="mt-4 font-serif text-5xl tracking-tight text-foreground transition-colors duration-200 group-hover:text-[var(--brand-color)] sm:text-6xl">
+                  {/* Heading block — name + classification + origin.
+                      Removed the big serif "01 / 02" numbering — every
+                      partner is treated equally, no ranking implied. */}
+                  <h2 className="font-serif text-5xl tracking-tight text-foreground transition-colors duration-200 group-hover:text-[var(--brand-color)] sm:text-6xl">
                     {m.name}
                   </h2>
 

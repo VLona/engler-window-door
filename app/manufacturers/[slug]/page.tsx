@@ -38,8 +38,7 @@ export default async function ManufacturerDeepPage({
   const m = manufacturers.find((m) => m.slug === slug);
   if (!m) notFound();
 
-  // Find the index for the "01 / 07" eyebrow + the other brands for cross-promo
-  const index = manufacturers.findIndex((x) => x.slug === slug);
+  // The other 6 brands for the cross-promo grid at the bottom.
   const otherBrands = manufacturers.filter((x) => x.slug !== slug);
 
   return (
@@ -76,7 +75,7 @@ export default async function ManufacturerDeepPage({
               <img
                 src={m.logo}
                 alt={`${m.name} logo`}
-                className="max-h-44 w-auto object-contain lg:max-h-56"
+                className="h-32 w-auto object-contain lg:h-40"
               />
             </a>
           ) : (
@@ -89,10 +88,9 @@ export default async function ManufacturerDeepPage({
           )}
         </div>
 
-        {/* Eyebrow */}
+        {/* Eyebrow — no numbering: every partner is treated equally */}
         <p className="mt-10 text-xs uppercase tracking-[0.25em] text-muted">
-          Manufacturer Partner · {String(index + 1).padStart(2, "0")} /{" "}
-          {String(manufacturers.length).padStart(2, "0")}
+          Manufacturer Partner
         </p>
 
         {/* Brand name — clickable to manufacturer site if website exists */}

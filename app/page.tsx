@@ -10,132 +10,208 @@ export default function Home() {
     <div className="bg-background text-foreground">
       <SiteHeader />
 
-      {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl px-6 pt-16 pb-24 lg:px-10 lg:pt-24 lg:pb-32">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Left: copy */}
-          <div className="lg:col-span-5 lg:pt-10">
-            <p className="mb-8 inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
-              <span className="h-px w-8 bg-accent" />
-              Custom Windows &amp; Doors · Est. 2003
-            </p>
+      {/* ── Cinematic hero — full-bleed image, minimal overlay ────
+          ONE image, ONE headline, ONE primary CTA + ONE secondary link.
+          Stats strip, carousel, and the 5/7 split are intentionally gone —
+          the brief is luxury architecture, not contractor template. */}
+      <section className="relative flex h-[88vh] min-h-[640px] overflow-hidden bg-ink">
+        {/* Fullscreen image — Port Royal residence (arched windows + chandelier
+            + lake view). Iconic coastal Florida luxury frame. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://static.wixstatic.com/media/b7f13d_37a8746101b44356aab9456a52ef8ef0~mv2.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-            <h1 className="font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-              Custom windows &amp; doors, built for{" "}
-              <em className="font-serif italic text-accent">
-                the way you live.
-              </em>
+        {/* Directional gradient — heaviest at bottom-left where the text sits,
+            fading to near-transparent top-right so the image breathes. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-tr from-ink/90 via-ink/55 to-ink/15"
+        />
+
+        {/* Bottom-left editorial overlay */}
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl items-end px-6 pb-20 lg:px-10 lg:pb-28">
+          <FadeIn className="max-w-4xl">
+            <p className="text-xs uppercase tracking-[0.35em] text-background/75">
+              Engler Window &amp; Door · Naples, Florida
+            </p>
+            <h1 className="mt-7 font-serif text-6xl leading-[0.95] tracking-tight text-background sm:text-7xl lg:text-8xl xl:text-9xl">
+              Built to live with for{" "}
+              <em className="italic text-accent">generations.</em>
             </h1>
-
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-muted">
-              For over twenty years, Engler has worked with homeowners,
-              architects, and builders — delivering Loewen, ES Windows, and
-              Signature Door products with the codes-and-craft knowledge every
-              home deserves.
+            {/* Subhead — tells visitors what Engler actually does in one line.
+                without this, the headline alone could be any luxury brand. */}
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-background/85 sm:text-lg">
+              Custom windows &amp; doors for Southwest Florida&apos;s most
+              considered homes — designed, sourced, and installed personally
+              by Mike Engler since 2003.
             </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
               <Link
                 href="/quote"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-9 py-4 text-sm font-medium text-background transition-colors duration-300 hover:bg-accent-dark"
               >
                 Start your project
               </Link>
-              <a
-                href="#work"
-                className="group inline-flex items-center justify-center gap-1.5 px-2 py-3.5 text-sm font-medium text-foreground transition-colors hover:text-accent"
+              <Link
+                href="/portfolio"
+                className="group inline-flex items-center gap-2 text-sm font-medium text-background underline-offset-4 transition-colors hover:text-accent hover:underline"
               >
-                See our work
+                See selected work
                 <span
                   aria-hidden="true"
                   className="inline-block transition-transform duration-300 group-hover:translate-x-1"
                 >
                   →
                 </span>
-              </a>
+              </Link>
             </div>
+          </FadeIn>
+        </div>
+      </section>
 
-            {/* Brand values strip */}
-            <dl className="mt-14 grid grid-cols-3 gap-6 border-t border-line pt-8 text-[11px] uppercase tracking-[0.18em] text-muted">
-              <div>
-                <dt className="font-serif text-2xl normal-case tracking-tight text-accent">
-                  20+
-                </dt>
-                <dd className="mt-2">Years family-owned</dd>
-              </div>
-              <div>
-                <dt className="font-serif text-2xl normal-case tracking-tight text-accent">
-                  7
-                </dt>
-                <dd className="mt-2">Premier manufacturer partners</dd>
-              </div>
-              <div>
-                <dt className="font-serif text-2xl normal-case tracking-tight text-accent">
-                  100s
-                </dt>
-                <dd className="mt-2">Projects delivered</dd>
-              </div>
-            </dl>
+      {/* ── Featured Project — the ONE memorable showcase moment.
+          Asymmetric 8/4 grid: oversized portrait image dominates, editorial
+          headline + project metadata stack sits beside it like an architect's
+          label. Replaces the old centered "See portfolio" CTA. */}
+      <section
+        id="work"
+        className="overflow-hidden bg-background py-32 lg:py-44"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          {/* Top bar — eyebrow only, no number.
+              The "01" implied a series; we only have one project, so removing
+              the number stops the dishonest "next one coming" cue. */}
+          <div className="flex items-baseline gap-6 border-b border-line pb-6">
+            <span className="text-xs uppercase tracking-[0.35em] text-muted">
+              Selected Work · Featured
+            </span>
           </div>
 
-          {/* Right: rotating carousel of Engler installs (3s auto-advance,
-              clickable → /portfolio), with the navy offset block behind it */}
-          <div className="lg:col-span-7">
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute -bottom-4 -right-4 h-full w-full bg-accent lg:-bottom-6 lg:-right-6"
-              />
-              <ProjectCarousel
-                className="relative aspect-[4/5] w-full bg-line lg:aspect-[5/6]"
-                autoAdvanceMs={3000}
-                linkHref="/portfolio"
-              />
+          {/* Asymmetric showcase */}
+          <div className="mt-16 grid grid-cols-1 gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-20">
+            {/* Oversized portrait image — 8 of 12 columns */}
+            <div className="lg:col-span-8">
+              <Link
+                href="/portfolio"
+                className="group relative block aspect-[4/5] w-full overflow-hidden bg-line lg:aspect-[5/6]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://static.wixstatic.com/media/b7f13d_cca93d574ed047b8919f90d950cc1400~mv2.jpeg/v1/fit/w_1600,h_2000,q_90,enc_avif,quality_auto/b7f13d_cca93d574ed047b8919f90d950cc1400~mv2.jpeg"
+                  alt="Engler Window & Door — featured residential installation"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+                {/* Subtle caption ribbon bottom — emerges from a soft gradient */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/65 to-transparent p-8 lg:p-12"
+                >
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-background/90">
+                    A Naples Residence
+                  </p>
+                </div>
+              </Link>
             </div>
-            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-muted lg:mt-12">
-              <span className="text-accent">Selected work ·</span> Engler
-              installations across Southwest Florida
-            </p>
+
+            {/* Editorial text column — vertically centered next to the image */}
+            <div className="lg:col-span-4 lg:flex lg:flex-col lg:justify-center">
+              <h2 className="font-serif text-5xl leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                Built to disappear into the architecture they{" "}
+                <em className="italic text-accent">belong to.</em>
+              </h2>
+
+              {/* Project metadata — navy accent-line stack, architect's label feel */}
+              <dl className="mt-12 space-y-6 border-l-2 border-accent pl-6">
+                <div>
+                  <dt className="text-[10px] uppercase tracking-[0.25em] text-muted">
+                    Featured in this project
+                  </dt>
+                  <dd className="mt-1 font-serif text-lg text-foreground">
+                    Loewen casements · Euro-Wall multi-slide
+                  </dd>
+                  <dd className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted">
+                    <Link
+                      href="/manufacturers"
+                      className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
+                    >
+                      2 of 7 premier partners · See all
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] uppercase tracking-[0.25em] text-muted">
+                    Scope
+                  </dt>
+                  <dd className="mt-1 font-serif text-lg text-foreground">
+                    Custom new construction
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] uppercase tracking-[0.25em] text-muted">
+                    Location
+                  </dt>
+                  <dd className="mt-1 font-serif text-lg text-foreground">
+                    Naples, Florida
+                  </dd>
+                </div>
+              </dl>
+
+              <Link
+                href="/portfolio"
+                className="group mt-12 inline-flex items-center gap-3 self-start text-sm font-medium text-foreground transition-colors hover:text-accent"
+              >
+                See the full portfolio
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-2"
+                >
+                  →
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Projects gallery ───────────────────────────────────── */}
-      {/* ── Portfolio CTA — compact replacement for the old 3-photo gallery.
-          Hero carousel already shows rotating photos; full gallery lives at
-          /portfolio. This section is just the bridge between hero and band. */}
-      <section
-        id="work"
-        className="mx-auto max-w-4xl px-6 py-24 text-center lg:px-10 lg:py-32"
-      >
-        <FadeIn>
-          <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
-            <span className="h-px w-8 bg-accent" />
-            Selected Work
-            <span className="h-px w-8 bg-accent" />
+      {/* ── Full-width imagery break — wordless cinematic cut.
+          Palate cleanser between the featured project's editorial weight
+          and the manufacturer band's quick info beat. NO container, NO
+          padding, NO text. Pure imagery.
+          Photo chosen to be UNIQUE — not in the hero, featured project,
+          or CTA carousel. Avoids on-homepage repetition. */}
+      <section className="relative h-[55vh] min-h-[380px] w-full overflow-hidden bg-ink">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://static.wixstatic.com/media/b7f13d_dfaf75c8faa84281952d74918daf957e~mv2.jpeg/v1/fit/w_1920,h_960,q_90,enc_avif,quality_auto/b7f13d_dfaf75c8faa84281952d74918daf957e~mv2.jpeg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {/* Soft gradient anchors the caption at bottom-left without darkening
+            the rest of the image — keeps the cinematic feel, earns its space */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink/70 to-transparent"
+        />
+        <div className="absolute inset-x-0 bottom-0 mx-auto flex max-w-7xl items-end justify-between gap-6 px-6 pb-10 text-background lg:px-10 lg:pb-12">
+          <span className="text-[11px] uppercase tracking-[0.35em] text-background/85">
+            Selected Work · Naples, Florida
           </span>
-          <h2 className="mt-6 font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            A portfolio across Naples, the Gulf Coast, and{" "}
-            <em className="italic text-accent">beyond.</em>
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted">
-            Twenty years of custom windows and doors — every project touched
-            personally by Mike, every install in a home built to last.
-          </p>
-          <Link
-            href="/portfolio"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg"
-          >
-            See full portfolio
-            <span aria-hidden="true">→</span>
-          </Link>
-        </FadeIn>
+          <span className="text-[11px] uppercase tracking-[0.35em] text-background/60">
+            Engler · since 2003
+          </span>
+        </div>
       </section>
 
-      {/* ── Manufacturer band (intro to detail below) ──────────── */}
+      {/* ── Manufacturer band — compressed informational beat ──── */}
       <section
         id="manufacturers"
-        className="border-y border-line bg-ink py-14 text-background lg:py-20"
+        className="border-y border-line bg-ink py-10 text-background lg:py-14"
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-10 flex flex-col items-center gap-3 text-center">
@@ -178,123 +254,135 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Testimonial — single cinematic pull quote.
-          Replaced the 3-column grid + the entire 7-card manufacturer-details
-          section with this one editorial moment. The /manufacturers page now
-          owns the detailed brand storytelling; the homepage doesn't repeat it. */}
-      <section className="bg-ink py-32 text-background lg:py-44">
-        <div className="mx-auto max-w-4xl px-6 text-center lg:px-10">
+      {/* ── Testimonials — all 3 real ones from englerwindow.com,
+          side-by-side 3-column grid. Verbatim quotes, audience triangle
+          (homeowner / architect / builder). One FadeIn wraps everything. */}
+      <section className="bg-ink py-24 text-background lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <FadeIn>
-            <span aria-hidden="true" className="font-serif text-6xl leading-none text-accent">
-              &ldquo;
-            </span>
-            <blockquote className="mt-4 font-serif text-3xl italic leading-[1.2] tracking-tight text-background sm:text-4xl lg:text-5xl">
-              Mike doesn&apos;t just provide windows and doors — he is a
-              partner in creating true-to-form architectural elements.
-            </blockquote>
-            <figcaption className="mt-12 text-xs uppercase tracking-[0.3em] text-background/60">
-              <span className="text-accent">—</span> Nautilus Homes
-              <span className="mx-2 text-background/40">·</span>
-              Custom Builder
-            </figcaption>
+            <p className="text-center text-xs uppercase tracking-[0.35em] text-background/60">
+              What they&apos;re saying
+            </p>
+
+            <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10 lg:gap-16">
+              {/* Patty Wareham — homeowner */}
+              <figure>
+                <span
+                  aria-hidden="true"
+                  className="font-serif text-3xl leading-none text-accent"
+                >
+                  &ldquo;
+                </span>
+                <blockquote className="mt-3 font-serif text-lg italic leading-snug text-background/95 sm:text-xl">
+                  Mr. Engler and his team are extremely professional and
+                  deliver excellent quality in their product and service.
+                </blockquote>
+                <figcaption className="mt-6 text-[11px] uppercase tracking-[0.3em] text-background/60">
+                  <span className="text-accent">—</span> Patty Wareham
+                  <span className="mx-2 text-background/40">·</span>
+                  Homeowner
+                </figcaption>
+              </figure>
+
+              {/* Irma Sefa — architect */}
+              <figure>
+                <span
+                  aria-hidden="true"
+                  className="font-serif text-3xl leading-none text-accent"
+                >
+                  &ldquo;
+                </span>
+                <blockquote className="mt-3 font-serif text-lg italic leading-snug text-background/95 sm:text-xl">
+                  It&apos;s always a pleasure working with Mike and his team,
+                  who are very knowledgeable and detail-oriented, helpful and
+                  courteous. Mike presents the best product for a particular
+                  project, one that functions optimally and adds value. His
+                  company&apos;s approach and product line-up are advantageous
+                  for my practice and for our industry.
+                </blockquote>
+                <figcaption className="mt-6 text-[11px] uppercase tracking-[0.3em] text-background/60">
+                  <span className="text-accent">—</span> Irma Sefa
+                  <span className="mx-2 text-background/40">·</span>
+                  Architect
+                </figcaption>
+              </figure>
+
+              {/* Nautilus Homes — custom builder */}
+              <figure>
+                <span
+                  aria-hidden="true"
+                  className="font-serif text-3xl leading-none text-accent"
+                >
+                  &ldquo;
+                </span>
+                <blockquote className="mt-3 font-serif text-lg italic leading-snug text-background/95 sm:text-xl">
+                  Mike doesn&apos;t just provide windows and doors, he is a
+                  partner in creating true to form architectural elements. He
+                  knows all the ins and outs of the products that he
+                  represents and is great with one on one meetings with
+                  owners.
+                </blockquote>
+                <figcaption className="mt-6 text-[11px] uppercase tracking-[0.3em] text-background/60">
+                  <span className="text-accent">—</span> Nautilus Homes
+                  <span className="mx-2 text-background/40">·</span>
+                  Custom Builder
+                </figcaption>
+              </figure>
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ── About ──────────────────────────────────────────────── */}
-      <section id="about" className="bg-background py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
-            <FadeIn className="lg:col-span-5">
-              <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
-                <span className="h-px w-8 bg-accent" />
-                About Engler
+      {/* ── About — whitespace-heavy editorial single-column.
+          Dropped the 3-card values grid (read like SaaS feature cards) and
+          condensed to two paragraphs. Narrower container, more breath,
+          centered eyebrow + Mike's signature for editorial bookends. */}
+      {/* ── About — VERBATIM copy from englerwindow.com.
+          No invented headline, no invented paragraphs, no Mike signature.
+          The 3 lines below are their actual core values lifted directly. */}
+      <section id="about" className="bg-background py-32 lg:py-44">
+        <div className="mx-auto max-w-3xl px-6 lg:px-10">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-muted">
+              <span className="h-px w-8 bg-accent" />
+              About Engler
+              <span className="h-px w-8 bg-accent" />
+            </span>
+            <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              In Southwest Florida{" "}
+              <em className="italic text-accent">since 2003.</em>
+            </h2>
+          </div>
+
+          <div className="mt-16 space-y-7 text-left text-base leading-relaxed text-muted lg:text-lg">
+            <p>
+              Engler Window &amp; Door has been in business for over 20 years
+              in Southwest Florida. Our substantial project portfolio
+              highlights our hard-earned reputation for quality control, top
+              rated product offerings, and knowledgeability on codes and
+              trends.
+            </p>
+            <p>
+              EWD specializes in custom new construction and remove &amp;
+              replace projects.
+            </p>
+          </div>
+
+          {/* Their 3 actual core values — lifted directly from
+              englerwindow.com. Single accent line, NOT 3 SaaS feature cards. */}
+          <div className="mt-16 border-t border-line pt-10">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.3em] text-foreground">
+              <span>Distinctive products &amp; ability</span>
+              <span aria-hidden="true" className="text-accent">
+                ·
               </span>
-              <h2 className="mt-4 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Twenty years, one family,{" "}
-                <em className="italic text-accent">one standard.</em>
-              </h2>
-            </FadeIn>
-
-            <FadeIn
-              delay={150}
-              className="space-y-6 text-base leading-relaxed text-muted lg:col-span-7"
-            >
-              <p>
-                Engler Window &amp; Door was founded in 2003 by Mike Engler in
-                Naples, Florida. What started as one man insisting on doing
-                the install himself has grown into a small, deliberate
-                family-owned business that homeowners, architects, and
-                builders across the Gulf Coast keep coming back to.
-              </p>
-              <p>
-                We&apos;ve stayed small on purpose. What&apos;s grown over
-                twenty years isn&apos;t our headcount — it&apos;s the depth
-                of our manufacturer relationships, the breadth of our project
-                portfolio, and our reputation for the codes-and-craft
-                knowledge the Florida climate demands.
-              </p>
-              <p>
-                Today, Engler specializes in{" "}
-                <em className="font-serif italic text-foreground">
-                  custom new construction
-                </em>{" "}
-                and{" "}
-                <em className="font-serif italic text-foreground">
-                  remove &amp; replace
-                </em>{" "}
-                projects from Naples to North Carolina — every one of them
-                touched personally by Mike.
-              </p>
-            </FadeIn>
+              <span>Longterm specialized service</span>
+              <span aria-hidden="true" className="text-accent">
+                ·
+              </span>
+              <span>Fair &amp; honest practices</span>
+            </div>
           </div>
-
-          {/* Three core values — lifted from the real englerwindow.com */}
-          <div className="mt-20 grid grid-cols-1 gap-12 border-t border-line pt-16 md:grid-cols-3 md:gap-8">
-            <FadeIn>
-              <article>
-                <span className="font-serif text-5xl text-accent">01</span>
-                <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
-                  Distinctive products
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  We carry only the manufacturers that meet our standard for
-                  design, performance, and warranty. No catalogue padding, no
-                  house brands.
-                </p>
-              </article>
-            </FadeIn>
-            <FadeIn delay={120}>
-              <article>
-                <span className="font-serif text-5xl text-accent">02</span>
-                <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
-                  Long-term service
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Specialized service that doesn&apos;t end the day we hand
-                  over the keys. The same Engler team is here in year ten as
-                  it was in year one.
-                </p>
-              </article>
-            </FadeIn>
-            <FadeIn delay={240}>
-              <article>
-                <span className="font-serif text-5xl text-accent">03</span>
-                <h3 className="mt-4 text-xs uppercase tracking-[0.25em] text-foreground">
-                  Fair &amp; honest
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Direct pricing, straight answers, and a quote you can take
-                  to your contractor. Twenty years of referrals come from how
-                  we handle the hard conversations.
-                </p>
-              </article>
-            </FadeIn>
-          </div>
-
-          <p className="mt-16 text-center font-serif text-lg italic text-muted">
-            — Mike Engler, Founder
-          </p>
         </div>
       </section>
 
@@ -313,17 +401,17 @@ export default function Home() {
               Let&apos;s begin
             </span>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Ready to start{" "}
-              <em className="italic text-accent">your project?</em>
+              Bring your blueprints.{" "}
+              <em className="italic text-accent">We&apos;ll bring the catalogue.</em>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
-              Call Mike directly, or send us a few details about your home and
-              we&apos;ll put a quote together for you.
+              Call Mike directly to talk through a project, or send the
+              details and we&apos;ll put a quote together for you.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="tel:+12393312390"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-background transition-colors duration-300 hover:bg-accent-dark"
               >
                 Call 239.331.2390
               </a>
