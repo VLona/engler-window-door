@@ -23,8 +23,9 @@ export type Project = {
   category: ProjectCategory;
 };
 
-// Windows category — 50 photos, pulled from engler's homepage carousel
-// + their portfolio-collections/my-portfolio/project-title-6 page.
+// Windows category — homepage carousel + portfolio-collections/my-portfolio/project-title-6.
+// 4 photos that ALSO appeared on the doors collection page were moved to
+// doorFiles below — they're rooms showing both, doors-primary per user.
 const windowFiles = [
   // Existing site hero / homepage photos
   "37a8746101b44356aab9456a52ef8ef0~mv2.jpg",
@@ -35,10 +36,6 @@ const windowFiles = [
   "b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg",
   // From englerwindow.com/portfolio-collections/my-portfolio/project-title-6
   "7ef984acaf8c4158a95e1999ea2560d7~mv2.jpeg",
-  "f0dffdd2eeb24d4db3ceaccba58bf4c6~mv2.jpeg",
-  "f6b2aa4292dc481798bbeacf851b3d78~mv2.jpeg",
-  "dfaf75c8faa84281952d74918daf957e~mv2.jpeg",
-  "9d29e0ed2f2d493ea1d51b691b9a4b8d~mv2.jpg",
   "51e1913f42924bc4bda8f14b867e5b55~mv2.jpg",
   "37f7eb726a0245beb38916e80fe0487f~mv2.jpeg",
   "b566294932294f5eaed93cab188fdb6a~mv2.jpeg",
@@ -80,12 +77,65 @@ const windowFiles = [
   "c330c9147f674ae1bf3fdc0d6fdff080~mv2.jpeg",
 ];
 
-// Doors category — smaller for now. When user sends a door-specific
-// portfolio collection URL we'll expand this (same array pattern).
+// Doors category — pulled from englerwindow.com/portfolio-collections/my-portfolio/project-title-3.
+// 50 total: 3 from earlier categorization + 4 that ALSO appeared on the
+// windows collection page (rooms showing both — doors-primary per user) +
+// 43 fresh photos from the doors collection.
 const doorFiles = [
+  // Originally categorized as doors
   "edd39283aa6a4e838293f02a0bc8989e~mv2.jpg",
   "90156cd07e8a4d8e942f9f815ff87e27~mv2.jpeg",
   "211035c2186649498791b6febb721281~mv2.jpeg",
+  // Appeared on BOTH windows AND doors collection pages on engler's site.
+  // Recategorized to doors-primary per user direction.
+  "f0dffdd2eeb24d4db3ceaccba58bf4c6~mv2.jpeg",
+  "f6b2aa4292dc481798bbeacf851b3d78~mv2.jpeg",
+  "dfaf75c8faa84281952d74918daf957e~mv2.jpeg",
+  "9d29e0ed2f2d493ea1d51b691b9a4b8d~mv2.jpg",
+  // From englerwindow.com/portfolio-collections/my-portfolio/project-title-3
+  "d0e15dc52590472bb8c8602061018bbc~mv2.jpg",
+  "088dcb852c4a46248abba8504926dcf7~mv2.jpeg",
+  "75e8ad19f0ea43d5827d125adc20fd41~mv2.jpeg",
+  "75b2d362018140c985f50e3d55f54e9c~mv2.jpeg",
+  "d10d78c5ce5f4ae79086902b8969ebf4~mv2.jpeg",
+  "0d7b9bbad13344baace4a5d04d95ef3a~mv2.jpeg",
+  "97680e84163f41a184e99f30a6363453~mv2.jpeg",
+  "29fd2d33bf4d4071830abb647238d0c1~mv2.jpeg",
+  "025acf858c5047fcb92e4be187cd2317~mv2.jpeg",
+  "05d450a280c541a5b0c002bba9df2a1c~mv2.jpeg",
+  "cced9de2269a474db98bda799c6f4cc0~mv2.jpeg",
+  "3100051aa1b943cb8f6c629a22b4d070~mv2.jpeg",
+  "8293f37752c84fc4b7d70f5af24beb6f~mv2.jpeg",
+  "03ae411df228492a99249742f4c7d08c~mv2.jpeg",
+  "298300dd67804ea9b97e478639abcb9d~mv2.jpeg",
+  "b4cc25fd1297460f9f3d727bae979a57~mv2.jpeg",
+  "9cd05b9043ca4a44a3e9830a75dffe28~mv2.jpeg",
+  "527c651ce45c4f9c80284151cda6f7c4~mv2.jpeg",
+  "918d58699d2149d29d1b6b960882b945~mv2.jpeg",
+  "51e456b7570541d48fb3f0ce1dfdf3a9~mv2.jpeg",
+  "91d991ef9bed432aab7dd876f5ea266f~mv2.jpeg",
+  "b97730fb6d2143bb9138e086bcc63d29~mv2.jpeg",
+  "88d977297ff9485d95a48a05b5cf83ee~mv2.jpeg",
+  "ce7e6222ef2849e1a3bfe9b11cf0460f~mv2.jpeg",
+  "b9beabaee866482a8cf93a277eb8e970~mv2.jpeg",
+  "ba988711d42540689fd25da18c528c5d~mv2.jpeg",
+  "83656f2490f34164985bf1f338c6c72b~mv2.jpeg",
+  "95a09f7cade74c4c8fbdf112f62d4752~mv2.jpeg",
+  "3dc83ddc51ed4b43b53e234a297ab82a~mv2.jpeg",
+  "601aceee1b0845c9b74e55103af1fae4~mv2.jpeg",
+  "31ab7af7193e4abf98168df53b24f66b~mv2.jpeg",
+  "35ced8f992054c77b120aa1ab4e212b1~mv2.jpeg",
+  "13a0a537d76a41e591e45de64d58a0d0~mv2.jpeg",
+  "2ac646f698ba4ec3a3d6013161850511~mv2.jpeg",
+  "b2e2e4aa4e4541b2b57d47e38f76f42a~mv2.jpeg",
+  "1832b972d0a74d48aae1efe181bec487~mv2.jpeg",
+  "af1b29002545481e9c96a3abee9bb5f0~mv2.jpeg",
+  "46a4954b27124a8cb0d1cdba464c9fdf~mv2.jpeg",
+  "1b9ddb3345e04db897ea22a504f50f06~mv2.jpeg",
+  "7611813a8bdb45a6bd9ca15e85a40cee~mv2.jpeg",
+  "25f11f270bde4ac38d48c4cd4a07066c~mv2.jpeg",
+  "21a27714b73b429b96e9e88acc678c80~mv2.jpeg",
+  "aaa3394bb0b64af58c064eb6fa2b12dc~mv2.jpeg",
 ];
 
 export const projects: Project[] = [
