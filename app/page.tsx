@@ -19,7 +19,7 @@ export default function Home() {
             + lake view). Iconic coastal Florida luxury frame. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://static.wixstatic.com/media/b7f13d_37a8746101b44356aab9456a52ef8ef0~mv2.jpg"
+          src="https://static.wixstatic.com/media/b7f13d_37a8746101b44356aab9456a52ef8ef0~mv2.jpg/v1/fit/w_2880,h_1620,q_95,enc_avif,quality_auto/b7f13d_37a8746101b44356aab9456a52ef8ef0~mv2.jpg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
@@ -187,7 +187,7 @@ export default function Home() {
       <section className="relative h-[55vh] min-h-[380px] w-full overflow-hidden bg-ink">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://static.wixstatic.com/media/b7f13d_dfaf75c8faa84281952d74918daf957e~mv2.jpeg/v1/fit/w_1920,h_960,q_90,enc_avif,quality_auto/b7f13d_dfaf75c8faa84281952d74918daf957e~mv2.jpeg"
+          src="https://static.wixstatic.com/media/b7f13d_dfaf75c8faa84281952d74918daf957e~mv2.jpeg/v1/fit/w_2880,h_1440,q_95,enc_avif,quality_auto/b7f13d_dfaf75c8faa84281952d74918daf957e~mv2.jpeg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
