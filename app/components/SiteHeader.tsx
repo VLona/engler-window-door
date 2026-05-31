@@ -55,7 +55,7 @@ export default function SiteHeader() {
             </li>
             <li>
               <Link
-                href="/#about"
+                href="/about"
                 className="transition-colors hover:text-accent"
               >
                 About

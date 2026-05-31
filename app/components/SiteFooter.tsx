@@ -80,7 +80,7 @@ export default function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/#about"
+                  href="/about"
                   className="transition-colors hover:text-accent"
                 >
                   About
