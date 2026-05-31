@@ -208,49 +208,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Manufacturer band — compressed informational beat ──── */}
+      {/* ── Manufacturer band — refined, confident, no decoration.
+          Dropped: the ◆ diamond decorations, the "South Florida code-compliant"
+          fine-print caption, and the marketing-prose headline.
+          Added: confident "Seven manufacturers. One installer." typography move
+          and a subtle underline-on-hover for the brand names so the click
+          affordance is clearer. */}
       <section
         id="manufacturers"
-        className="border-y border-line bg-ink py-10 text-background lg:py-14"
+        className="border-y border-line bg-ink py-14 text-background lg:py-20"
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-10 flex flex-col items-center gap-3 text-center">
+          <div className="mb-12 flex flex-col items-center gap-4 text-center">
             <span className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-background/60">
               <span className="h-px w-8 bg-accent" />
               Premier manufacturer partners
               <span className="h-px w-8 bg-accent" />
             </span>
-            <h2 className="max-w-2xl font-serif text-3xl leading-tight tracking-tight text-background md:text-4xl">
-              The finest names in custom windows &amp; doors,{" "}
-              <em className="italic text-accent">handpicked for every home.</em>
+            <h2 className="font-serif text-3xl leading-tight tracking-tight text-background md:text-4xl lg:text-5xl">
+              Seven manufacturers.{" "}
+              <em className="italic text-accent">One installer.</em>
             </h2>
           </div>
 
-          <ul className="grid grid-cols-2 gap-x-6 gap-y-10 text-center sm:grid-cols-3 lg:grid-cols-7">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-8 text-center sm:grid-cols-3 lg:grid-cols-7">
             {manufacturers.map((m) => (
-              <li
-                key={m.slug}
-                className="border-l border-background/10 first:border-l-0 sm:[&:nth-child(4)]:border-l-0 lg:[&:nth-child(n)]:border-l lg:[&:nth-child(n)]:first:border-l-0"
-              >
+              <li key={m.slug}>
                 <Link
                   href={`/manufacturers/${m.slug}`}
-                  className="group flex flex-col items-center gap-3"
+                  className="group inline-flex flex-col items-center"
                 >
-                  <span aria-hidden="true" className="text-[10px] text-accent">
-                    ◆
-                  </span>
                   <span className="font-serif text-xl tracking-tight text-background/90 transition-colors group-hover:text-accent md:text-2xl">
                     {m.name}
                   </span>
+                  {/* Thin underline grows from 0 → full width on hover —
+                      signals clickability without cluttering at rest */}
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full"
+                  />
                 </Link>
               </li>
             ))}
           </ul>
-
-          <p className="mt-12 text-center text-[11px] uppercase tracking-[0.2em] text-background/50">
-            Custom windows, doors, and architectural hardware · South Florida
-            code-compliant
-          </p>
         </div>
       </section>
 
