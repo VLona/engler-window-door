@@ -6,23 +6,23 @@ import Link from "next/link";
 // All slides live in this array — add/remove entries here, JSX below stays the same.
 const slides = [
   {
-    src: "https://static.wixstatic.com/media/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg/v1/fit/w_1920,h_930,q_90,enc_avif,quality_auto/b7f13d_e5c263f0d0954237938f4be11c13015f~mv2.jpeg",
+    src: "/images/portfolio/e5c263f0d0954237938f4be11c13015f.avif",
     alt: "Engler Window & Door — featured installation",
   },
   {
-    src: "https://static.wixstatic.com/media/b7f13d_259ecae172654e5ca9fffbad5c79d8d1~mv2.jpeg/v1/fit/w_1920,h_1080,q_90,enc_avif,quality_auto/b7f13d_259ecae172654e5ca9fffbad5c79d8d1~mv2.jpeg",
+    src: "/images/portfolio/259ecae172654e5ca9fffbad5c79d8d1.avif",
     alt: "Engler Window & Door — coastal residence",
   },
   {
-    src: "https://static.wixstatic.com/media/b7f13d_90156cd07e8a4d8e942f9f815ff87e27~mv2.jpeg/v1/fit/w_1920,h_1080,q_90,enc_avif,quality_auto/b7f13d_90156cd07e8a4d8e942f9f815ff87e27~mv2.jpeg",
+    src: "/images/portfolio/90156cd07e8a4d8e942f9f815ff87e27.avif",
     alt: "Engler Window & Door — custom installation",
   },
   {
-    src: "https://static.wixstatic.com/media/b7f13d_211035c2186649498791b6febb721281~mv2.jpeg/v1/fit/w_1920,h_1080,q_90,enc_avif,quality_auto/b7f13d_211035c2186649498791b6febb721281~mv2.jpeg",
+    src: "/images/portfolio/211035c2186649498791b6febb721281.avif",
     alt: "Engler Window & Door — architect collaboration",
   },
   {
-    src: "https://static.wixstatic.com/media/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg/v1/fit/w_1920,h_930,q_90,enc_avif,quality_auto/b7f13d_b7e0d8c3afdd4b97bf2f6d9013e6d666~mv2.jpeg",
+    src: "/images/portfolio/b7e0d8c3afdd4b97bf2f6d9013e6d666.avif",
     alt: "Engler Window & Door — recent project",
   },
 ];

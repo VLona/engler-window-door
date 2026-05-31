@@ -10,7 +10,7 @@ export default function SiteFooter() {
           <div className="md:col-span-5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://static.wixstatic.com/media/b7f13d_4fd9ca12c1df4868a58318f47c856ca9~mv2.png"
+              src="/images/engler-logo.png"
               alt="Engler Window & Door"
               className="h-12 w-auto brightness-0 invert"
             />

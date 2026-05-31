@@ -11,7 +11,7 @@ export type Manufacturer = {
   tagline?: string; // brand's own tagline / official quote (verbatim where possible) — used on /manufacturers page
   shortCopy: string; // 1-2 sentence Engler-voiced summary (used on homepage cards)
   longCopy: string; // expanded 3-4 sentence Engler-voiced version (used on /manufacturers page)
-  logo: string; // logo URL — currently hotlinking from englerwindow.com's wixstatic CDN
+  logo: string; // logo URL — self-hosted from /public/images/manufacturers/{slug}.{ext}
   origin?: string; // where the manufacturer is based
   products: string[]; // categories Engler installs (lifted from engler's industry-resources page)
   signatureLines?: string[]; // collection / product line names worth calling out
@@ -32,7 +32,7 @@ export const manufacturers: Manufacturer[] = [
       "For projects that demand the warmth of wood paired with modern engineering, we work with Loewen. Their hand-finished casements and lift-and-slide doors are how we deliver true architectural craft to clients who notice every detail.",
     longCopy:
       "For projects that demand the warmth of wood paired with modern engineering, we work with Loewen. Every Loewen window starts as solid wood laminations — never veneers — and pairs with extruded aluminum cladding and solid bronze, brass, zinc, or stainless steel hardware. Engler installs across Loewen's full product line, from the Cyprium Collection down to their StormForce series.",
-    logo: "https://static.wixstatic.com/media/b7f13d_473f84e5973a46edaed105b279702f51~mv2.jpg",
+    logo: "/images/manufacturers/loewen.jpg",
     website: "https://www.loewen.com",
     // productGuide intentionally removed for now — set this URL again when Mike confirms which Loewen PDF to host.
     brandColor: "#C8232C", // red — from the cursive Loewen wordmark
@@ -57,7 +57,7 @@ export const manufacturers: Manufacturer[] = [
       "Built for Florida's climate. ES Windows' impact-rated aluminum systems are our first call when a project needs hurricane code compliance without sacrificing the clean modern lines architects ask for.",
     longCopy:
       "Built for Florida's climate. ES Windows' impact-rated aluminum systems are our first call when a project needs hurricane code compliance without sacrificing the clean modern lines architects ask for. The full residential line — from the ES-5000 casement through the ES-EL400 sliding door — meets Florida HVHZ Category 5 standards while keeping slim profiles and tall configurations.",
-    logo: "https://static.wixstatic.com/media/b7f13d_31f096e4cd3f4e1b88f38ad8990d4548~mv2.png",
+    logo: "/images/manufacturers/es-windows.png",
     website: "https://eswindows.com",
     brandColor: "#1B3A6B", // deep blue — aluminum modernist
     products: [
@@ -85,7 +85,7 @@ export const manufacturers: Manufacturer[] = [
       "An entryway sets the tone for the whole home. We work with Signature Door because every one of theirs is built from solid mahogany or wrought iron, made-to-order for the residence it opens.",
     longCopy:
       "An entryway sets the tone for the whole home. We work with Signature Door because every one of theirs is built from solid wood, iron grillework, and decorative glass — manufactured to your exact specifications. Signature carries impact and non-impact testing up to Category 5 hurricane compliance, and every door is made-to-order in Altoona, Pennsylvania.",
-    logo: "https://static.wixstatic.com/media/b7f13d_e8443e70324f4eff9def1cfbf34802a3~mv2.png",
+    logo: "/images/manufacturers/signature-door.png",
     website: "https://signaturedoor.com",
     brandColor: "#5C3317", // mahogany — wood + iron entryways
     origin: "Altoona, Pennsylvania",
@@ -107,7 +107,7 @@ export const manufacturers: Manufacturer[] = [
       "When clients want to dissolve the line between living room and lanai, we install Euro-Wall. Their folding and pocketing glass walls open entire facades to the water, the breeze, and the view.",
     longCopy:
       "When clients want to dissolve the line between living room and lanai, we install Euro-Wall. Their folding and pocketing glass walls open entire facades to the water, the breeze, and the view. The Euro Vista Bi-Fold and Multi Slide systems are the centerpiece of every Engler project that calls for true indoor-outdoor living.",
-    logo: "https://static.wixstatic.com/media/b7f13d_f4d9e0878f1145db9483a8a64423ee0b~mv2.png",
+    logo: "/images/manufacturers/euro-wall.png",
     website: "https://eurowallsystems.com",
     brandColor: "#5A6F7A", // steel blue-gray — glass + aluminum
     products: [
@@ -126,7 +126,7 @@ export const manufacturers: Manufacturer[] = [
       "Origin's slim-profile aluminum bifolds and casements deliver the minimalist look modern Naples architecture demands — paired with the precision and warranty backing that come out of an English factory.",
     longCopy:
       "Origin's slim-profile aluminum bifolds, casements, and french doors deliver the minimalist look modern Naples architecture demands — paired with the precision of a 20-year guarantee out of an English factory. Their family-run UK operation has spent over two decades perfecting aluminum systems for the discerning custom market.",
-    logo: "https://static.wixstatic.com/media/b7f13d_d3a510d0ba5147b18eafdc7cb22fd295~mv2.jpg",
+    logo: "/images/manufacturers/origin.jpg",
     website: "https://www.origin-global.com",
     brandColor: "#212121", // charcoal black — minimalist aluminum
     origin: "Manufactured in-house in the UK",
@@ -162,7 +162,7 @@ export const manufacturers: Manufacturer[] = [
       "The smallest details say the most about a home. Ashley Norton's solid-brass handles, hinges, and locksets — finished by hand in any patina — are what we specify when nothing less than perfect will do.",
     longCopy:
       "The smallest details say the most about a home. Ashley Norton's solid-brass and bronze hardware — handcrafted by artisans since 1987 and tested for 5 million-plus cycles — is what we specify when nothing less than perfect will do. Available in seven brass finishes plus their signature Natural Bronze patina.",
-    logo: "https://static.wixstatic.com/media/b7f13d_0e766c7b138247158488b06c7d22dfc2~mv2.jpg",
+    logo: "/images/manufacturers/ashley-norton.jpg",
     website: "https://ashleynorton.com",
     brandColor: "#8B6F47", // brass + bronze — matches their material
     origin: "Founded 1987 · Europe & USA",

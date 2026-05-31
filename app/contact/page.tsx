@@ -20,7 +20,7 @@ export default function ContactPage() {
       <section className="relative overflow-hidden bg-ink">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://static.wixstatic.com/media/b7f13d_f6b2aa4292dc481798bbeacf851b3d78~mv2.jpeg/v1/fit/w_1920,h_1080,q_90,enc_avif,quality_auto/b7f13d_f6b2aa4292dc481798bbeacf851b3d78~mv2.jpeg"
+          src="/images/portfolio/f6b2aa4292dc481798bbeacf851b3d78.avif"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"

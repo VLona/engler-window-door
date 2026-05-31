@@ -2,19 +2,21 @@
 //   - app/portfolio/page.tsx (category landing — 2 big cards)
 //   - app/portfolio/[category]/page.tsx (per-category grids)
 
-// Wix CDN URL builder. Their /v1/fit/ path scales images to fit within w×h
-// while preserving aspect ratio. enc_avif uses the modern avif format
-// (smaller + faster than jpeg). Keeps the file identifier arrays below
-// short and readable instead of 50+ full URL strings.
-const WIX_BASE = "https://static.wixstatic.com/media/b7f13d_";
-const WIX_SIZE = "/v1/fit/w_1200,h_900,q_90,enc_avif,quality_auto/b7f13d_";
-export const wixUrl = (file: string) =>
-  `${WIX_BASE}${file}${WIX_SIZE}${file}`;
+// Local image URL builder. Files were downloaded from wixstatic at w_1920/q_90
+// (AVIF) and saved to /public/images/portfolio/{hash}.avif. Two specific images
+// used on full-bleed homepage heroes ("37a874..." + "dfaf75c8...") are saved at
+// w_2880 — same filename, just a bigger source. Keeps the arrays below short.
+// Filename param looks like "37a874...~mv2.jpg" — we strip the ~mv2.ext suffix
+// since we save everything as .avif regardless of original wix extension.
+const localUrl = (file: string) => {
+  const hash = file.split("~")[0];
+  return `/images/portfolio/${hash}.avif`;
+};
+export const wixUrl = localUrl;
 
-// Wide, cropped variant for full-bleed hero backgrounds (fill = crop to fill
-// the frame, vs fit = letterbox). Used by the category page heros.
-const heroUrl = (file: string) =>
-  `${WIX_BASE}${file}/v1/fill/w_1920,h_1080,q_90,enc_avif,quality_auto/b7f13d_${file}`;
+// Same source file used for category page heros — use CSS object-fit:cover at
+// the call site to crop. (Previously wix's /v1/fill/ transform did this server-side.)
+const heroUrl = localUrl;
 
 export type ProjectCategory = "windows" | "doors";
 

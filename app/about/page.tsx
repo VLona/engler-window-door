@@ -67,7 +67,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-ink">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://static.wixstatic.com/media/b7f13d_6882a8f46d514455b1c898291aa192e7~mv2.jpg/v1/fit/w_2880,h_1620,q_95,enc_avif,quality_auto/b7f13d_6882a8f46d514455b1c898291aa192e7~mv2.jpg"
+          src="/images/about-hero.avif"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"

@@ -57,9 +57,15 @@ app/
    (hero H1 + manufacturers H2). Family-owned since 2003. Mike Engler is the
    founder, named personally throughout. Audience triangle: homeowners,
    architects, builders.
-4. **Image strategy (current):** All photos hotlinked from
-   `static.wixstatic.com/...` — the existing englerwindow.com CDN. Marked as
-   TODO for Session 5 polish: download + serve from `/public`.
+4. **Image strategy:** All photos self-hosted from `/public/images/`.
+   - Portfolio photos: `/public/images/portfolio/{hash}.avif` (96 files, AVIF at w_1920;
+     two homepage heroes at w_2880). `wixUrl()` in `app/data/portfolio.ts` builds
+     these paths — strip `~mv2.ext` from the file param, append `.avif`.
+   - Manufacturer logos: `/public/images/manufacturers/{slug}.{ext}` (original
+     ext preserved per source — jpg or png).
+   - Engler logo: `/public/images/engler-logo.png` (PNG for transparency — used
+     by `SiteHeader` + `SiteFooter` with `brightness-0 invert` on dark footer).
+   - About hero: `/public/images/about-hero.avif`.
 5. **Phone CTA:** `tel:+12393312390` everywhere phone is shown. Real number:
    239.331.2390. Mike's email: mengler@englerwindow.com.
 

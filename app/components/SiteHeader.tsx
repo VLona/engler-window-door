@@ -25,7 +25,7 @@ export default function SiteHeader() {
           <Link href="/" aria-label="Engler Window & Door — home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://static.wixstatic.com/media/b7f13d_4fd9ca12c1df4868a58318f47c856ca9~mv2.png"
+              src="/images/engler-logo.png"
               alt="Engler Window & Door"
               className="h-10 w-auto md:h-12"
             />
